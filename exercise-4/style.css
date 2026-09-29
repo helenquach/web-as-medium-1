@@ -1,0 +1,148 @@
+body {
+  --black: #000b00;
+  --dark-blue: #1d2438;
+  --red: #d83030;
+  --grey: #999f9d;
+  --white: #ededed;
+
+  background-color: var(--black);
+}
+
+.red {
+  background-color: var(--red);
+}
+
+.black {
+  background-color: var(--black);
+}
+
+.blue {
+  background-color: var(--dark-blue);
+}
+
+.grey {
+  background-color: var(--grey);
+}
+
+.white {
+  background-color: var(--white);
+}
+
+.circle {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.b1 {
+  width: 420px;
+  height: 300px;
+  position: relative;
+  transform: translate(-72px, 50px);
+}
+
+.b1 > .upper-bowl {
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+}
+
+.b1 > .lower-bowl {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 200px;
+  height: 200px;
+}
+
+.b1 > .upper-bowl > .counter:nth-child(1) {
+  position: absolute;
+  top: 6px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+}
+
+.b1 > .upper-bowl > .counter:nth-child(2) {
+  position: absolute;
+  top: 6px;
+  right: 64px;
+  width: 200px;
+  height: 90px;
+}
+
+.b1 > .lower-bowl > .counter:nth-child(1) {
+  position: absolute;
+  bottom: 6px;
+  right: 20px;
+  width: 190px;
+  height: 190px;
+}
+
+.b1 > .lower-bowl > .counter:nth-child(2) {
+  position: absolute;
+  bottom: 6px;
+  right: 112px;
+  width: 200px;
+  height: 190px;
+}
+
+.b1 > .background {
+  position: absolute;
+  top: 0px;
+  right: 98px;
+  width: 180px;
+  height: 100%;
+}
+
+.b1 > .waist {
+  position: absolute;
+  top: 96px;
+  right: 96px;
+  width: 300px;
+  height: 8px;
+}
+
+.b1 > .stem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 300px;
+}
+
+.b1 > .stem > .stem {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 260px;
+  height: 260px;
+}
+
+.b1 > .foreground {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 300px;
+  width: 150px;
+}
+
+.b1 > .top-serif {
+  position: absolute;
+  top: 0px;
+  right: 260px;
+  width: 32px;
+  height: 20px;
+  transform: skewX(45deg);
+}
+
+.b1 > .bottom-serif {
+  position: absolute;
+  bottom: 0px;
+  right: 260px;
+  width: 32px;
+  height: 20px;
+  transform: skewX(-45deg);
+}
