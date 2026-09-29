@@ -146,3 +146,103 @@ body {
   height: 20px;
   transform: skewX(-45deg);
 }
+
+.b2 {
+  width: 360px;
+  height: 260px;
+  transform: translate(50px, 96px);
+}
+
+.b2 > .upper-bowl {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 130px;
+  height: 130px;
+}
+
+
+.b2 > .lower-bowl {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 130px;
+  height: 130px;
+}
+
+.b2 > .stem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 260px;
+}
+
+.b2 > .counter:nth-child(4) {
+  position: absolute;
+  top: 32px;
+  left: 42px;
+  width: 270px;
+  height: 72px;
+}
+
+.b2 > .counter:nth-child(5) {
+  position: absolute;
+  bottom: 32px;
+  left: 42px;
+  width: 270px;
+  height: 72px;
+}
+
+.b2 > .counter:nth-child(6) {
+  position: absolute;
+  top: 104px;
+  left: 45px;
+  width: 263px;
+  height: 8px;
+  transform: skewX(-45deg);
+}
+
+.b2 > .counter:nth-child(7) {
+  position: absolute;
+  top: 24px;
+  left: 45px;
+  width: 263px;
+  height: 8px;
+  transform: skewX(45deg);
+}
+
+.b2 > .counter:nth-child(8) {
+  position: absolute;
+  bottom: 104px;
+  left: 45px;
+  width: 263px;
+  height: 8px;
+  transform: skewX(45deg);
+}
+
+.b2 > .counter:nth-child(9) {
+  position: absolute;
+  bottom: 24px;
+  left: 45px;
+  width: 263px;
+  height: 8px;
+  transform: skewX(-45deg);
+}
+
+.b2 > .counter:nth-child(10) {
+  position: absolute;
+  top: 24px;
+  left: 40px;
+  width: 16px;
+  height: 88px;
+}
+
+
+.b2 > .counter:nth-child(11) {
+  position: absolute;
+  bottom: 24px;
+  left: 40px;
+  width: 16px;
+  height: 88px;
+}
