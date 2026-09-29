@@ -1,12 +1,21 @@
-@import url("https://use.typekit.net/kdb2pec.css");
+@import url('https://fonts.googleapis.com/css2?family=League+Gothic&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+html {
+  font-size: 20px;
+}
 
 body {
-  font-family: "source-serif-4-variable", sans-serif;
-  font-variation-settings: "opsz" 20, "wght" 400;
-  font-size: 20px;
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
   line-height: 1.5em;
-
-  margin: 0;
+  max-width: 48rem;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 2em auto;
 
   --lime: #d0ffa3;
   --mauve: #e7a0fe;
@@ -15,30 +24,42 @@ body {
   --navy-blue: #000180;
   --dark-text-color: var(--dark-blue);
 
-  background-color: var(--lime);
+  --background-color: #281e2a;
+  --text-color: #ff5712;
+  --accent-color: #d8e2e0;
+  --hover-color: #9ecad0;
+
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 h1, h2 {
-  color: var(--dark-text-color);
+  color: var(--accent-color);
+  font-family: "League Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 5rem;
+  font-weight: 500;
+  line-height: 1em;
+  margin-bottom: 0;
 }
 
 h2 {
-  font-size: 1.5em;
-  line-height: 0.5em;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
 p {
-  color: var(--dark-text-color);
+  color: var(--text-color);
   text-align: left;
   margin: 1em 0;
-}
-
-b {
-  font-variation-settings: "opsz" 20, "wght" 700;
 }
 
 ul {
@@ -53,7 +74,7 @@ hr {
   height: 1.5px;
   border: none;
   width: 100%;
-  background-color: var(--dark-text-color);
+  background-color: var(--text-color);
   margin: 2em 0 3em 0;
 }
 
@@ -62,12 +83,13 @@ hr {
 }
 
 .header {
-  margin-bottom: 1em;
-  width: 40em;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .center {
-  max-width: 36em;
+  max-width: 36rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -75,39 +97,63 @@ hr {
 }
 
 .evoke {
-  font-size: 24px;
-  line-height: 1.5em;
-  margin: 1em 0 2em 0;
-  background-color: var(--light-blue);
-  color: var(--dark-blue);
-  padding: 2em;
-  border-radius: 64px;
+  font-size: 3em;
+  line-height: 1.25em;
+  color: var(--accent-color);
+
+  font-family: "League Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+  margin-bottom: 2rem;
 }
 
 a {
   text-decoration: none;
-  color: var(--dark-text-color);
+  color: var(--text-color);
 }
 
 a:hover {
-  color: var(--mauve);
-  text-decoration-color: var(--mauve);
+  color: var(--accent-color);
+  text-decoration-color: var(--accent-color);
 }
 
 .page-link {
-  background-color: var(--mauve);
-  color: var(--navy-blue);
+  background-color: var(--text-color);
+  color: var(--background-color);
   padding: 0 0.2em;
 }
 
 .page-link:hover {
-  background-color: var(--dark-blue);
-  color: var(--lime);
+  background-color: var(--hover-color);
+  color: var(--background-color);
 }
 
-.nav-buttons {
+.footer {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
   margin: 0 0 2em 0;
+  width: 100%;
+}
+
+.box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.box:first-child {
+  justify-content: flex-start;
+}
+
+.box:last-child {
+  justify-content: flex-end;
+}
+
+.page-number {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-color);
 }
