@@ -368,7 +368,7 @@ body {
 .b4-wrapper {
   position: absolute;
   top: 256px;
-  left: 700px;
+  left: 680px;
   width: 240px;
   height: 410px;
   transform: scaleX(0.8);
@@ -478,7 +478,7 @@ body {
 .b5-wrapper {
   position: absolute;
   top: 56px;
-  left: 980px;
+  left: 960px;
   width: 200px;
   height: 260px;
 }
@@ -544,6 +544,109 @@ body {
 
 .b5 > .lines > .line:nth-child(11) {
   width: 90%;
+}
+
+.b6-wrapper {
+  position: absolute;
+  top: 290px;
+  left: 1120px;
+  width: 340px;
+  height: 380px;
+  transform: skewX(-16deg);
+}
+
+.b6 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.b6 > .upper-bowl {
+  position: absolute;
+  top: 0px;
+  left: 100px;
+  width: 200px;
+  height: 160px;
+  border-radius: 0px 120px 120px 0px;
+}
+
+.b6 > .lower-bowl {
+  position: absolute;
+  bottom: 0px;
+  left: 100px;
+  width: 240px;
+  height: 220px;
+  border-radius: 0px 120px 120px 0px;
+}
+
+.b6 > .upper-bowl > .counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 160px;
+  height: 130px;
+  border-radius: 0px 120px 120px 0px;
+} 
+
+.b6 > .lower-bowl > .counter {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  height: 190px;
+  border-radius: 0px 120px 120px 0px;
+}
+
+.b6 > .upper-swash {
+  position: absolute;
+  top: 0px;
+  left: 40px;
+  width: 80px;
+  height: 72px;
+  border-radius: 64px 16px 0px 64px;
+}
+
+.b6 > .upper-swash > .inner:nth-child(1) {
+  position: absolute;
+  top: 20px;
+  left: 12px;
+  width: 48px;
+  height: 42px;
+  border-radius: 64px 16px 0px 64px;
+}
+
+.b6 > .upper-swash > .inner:nth-child(2) {
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  width: 24px;
+  height: 48px;
+}
+
+.b6 > .lower-swash {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 120px;
+  height: 120px;
+  border-radius: 120px 0px 24px 120px;
+}
+
+.b6 > .lower-swash > .inner:nth-child(1) {
+  position: absolute;
+  bottom: 20px;
+  left: 12px;
+  width: 88px;
+  height: 90px;
+  border-radius: 64px 0px 24px 64px;
+}
+
+.b6 > .lower-swash > .inner:nth-child(2) {
+  position: absolute;
+  bottom: 38px;
+  right: 20px;
+  width: 24px;
+  height: 120px;
 }
 
 .gradient {
