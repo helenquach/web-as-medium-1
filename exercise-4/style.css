@@ -4,6 +4,7 @@ body {
   --red: #d83030;
   --grey: #999f9d;
   --white: #ededed;
+  --white-transparent: rgba(237, 237, 237, 0);
 
   background-color: var(--black);
 }
@@ -527,6 +528,10 @@ body {
 
 .b5 > .lines > .line:nth-child(11) {
   width: 90%;
+}
+
+.b5 > .lines > .shadow {
+  background: linear-gradient(to right, var(--white) 50%, var(--white-transparent) 70%, var(--white) 99%);
 }
 
 .b6-wrapper {
