@@ -256,7 +256,7 @@ body {
 
 .b2 > .top-serif.black {
   position: absolute;
-  top: 20px;
+  top: 18px;
   left: -32px;
   width: 64px;
   height: 64px;
@@ -272,7 +272,7 @@ body {
 
 .b2 > .bottom-serif.black {
   position: absolute;
-  bottom: 20px;
+  bottom: 18px;
   left: -32px;
   width: 64px;
   height: 64px;
@@ -363,6 +363,116 @@ body {
   right: 0px;
   width: 32px;
   height: 120px;
+}
+
+.b4-wrapper {
+  position: absolute;
+  top: 256px;
+  left: 700px;
+  width: 240px;
+  height: 410px;
+  transform: scaleX(0.8);
+}
+
+.b4 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.b4 > .upper-bowl {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 200px;
+  height: 190px;
+  border-radius: 0px 48px 0px 0px;
+}
+
+.b4 > .corner:nth-child(2) {
+  position: absolute;
+  top: 144px;
+  right: -24px;
+  width: 48px;
+  height: 48px;
+  transform:skewX(-45deg);
+}
+
+.b4 > .lower-bowl {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 200px;
+  height: 230px;
+  border-radius: 0px 48px 0px 0px;
+}
+
+.b4 > .corner:nth-child(4) {
+  position: absolute;
+  bottom: 0px;
+  right: -24px;
+  width: 48px;
+  height: 48px;
+  transform:skewX(-45deg);
+}
+
+.b4 > .upper-bowl > .counter {
+  position: absolute;
+  top: 48px;
+  left: 56px;
+  width: 90px;
+  height: 130px;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.b4 > .lower-bowl > .counter {
+  position: absolute;
+  top: 32px;
+  left: 56px;
+  width: 90px;
+  height: 150px;
+  border-radius: 0px 20px 20px 0px;
+}
+
+.b4 > .corner:nth-child(5) {
+  position: absolute;
+  top: 0px;
+  left: 72px;
+  width: 48px;
+  height: 48px;
+  transform: skewX(-45deg);
+}
+
+.b4 > .cover {
+  position: absolute;
+  top: 0px;
+  left: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.b4 > .top-serif {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 48px;
+  height: 48px;
+}
+
+.b4 > .bottom-serif {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 48px;
+  height: 48px;
+}
+
+.b4 > .vertical-line {
+  position: absolute;
+  bottom: 0px;
+  left: 110px;
+  height: 90%;
+  width: 4px;
 }
 
 .gradient {
