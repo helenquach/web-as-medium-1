@@ -475,6 +475,77 @@ body {
   width: 4px;
 }
 
+.b5-wrapper {
+  position: absolute;
+  top: 56px;
+  left: 980px;
+  width: 200px;
+  height: 260px;
+}
+
+.b5 {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.b5 > .lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.b5 > .lines > .line {
+  height: 4px;
+  width: 100%;
+}
+
+.b5 > .counter:nth-child(2) {
+  position: absolute;
+  top: 32px;
+  left: 45px;
+  width: 110px;
+  height: 72px;
+}
+
+.b5 > .counter:nth-child(3) {
+  position: absolute;
+  bottom: 32px;
+  left: 45px;
+  width: 110px;
+  height: 80px;
+}
+
+.b5 > .lines > .line:first-child {
+  width: 80%;
+}
+
+.b5 > .lines > .line:nth-child(2) {
+  width: 90%;
+}
+
+.b5 > .lines > .line:nth-child(19) {
+  width: 90%;
+}
+
+.b5 > .lines > .line:last-child {
+  width: 80%;
+}
+
+.b5 > .lines > .line:nth-child(9) {
+  width: 90%;
+}
+
+.b5 > .lines > .line:nth-child(10) {
+  width: 80%;
+}
+
+.b5 > .lines > .line:nth-child(11) {
+  width: 90%;
+}
+
 .gradient {
   position: absolute;
   top: 0px;
