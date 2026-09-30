@@ -1,5 +1,5 @@
 body {
-  --black: #000b00;
+  --black: #000000;
   --dark-blue: #1d2438;
   --red: #d83030;
   --grey: #999f9d;
@@ -115,10 +115,10 @@ body {
 
 .b1 > .stem > .stem {
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 20px;
   width: 260px;
-  height: 260px;
+  height: 280px;
 }
 
 .b1 > .foreground {
@@ -134,7 +134,7 @@ body {
   top: 0px;
   right: 260px;
   width: 32px;
-  height: 20px;
+  height: 10px;
   transform: skewX(45deg);
 }
 
@@ -143,7 +143,7 @@ body {
   bottom: 0px;
   right: 260px;
   width: 32px;
-  height: 20px;
+  height: 10px;
   transform: skewX(-45deg);
 }
 
@@ -173,32 +173,32 @@ body {
 .b2 > .stem {
   position: absolute;
   top: 0px;
-  left: 0px;
-  width: 300px;
+  left: 32px;
+  width: 266px;
   height: 260px;
 }
 
 .b2 > .counter:nth-child(4) {
   position: absolute;
   top: 32px;
-  left: 42px;
-  width: 270px;
+  left: 74px;
+  width: 238px;
   height: 72px;
 }
 
 .b2 > .counter:nth-child(5) {
   position: absolute;
   bottom: 32px;
-  left: 42px;
-  width: 270px;
+  left: 74px;
+  width: 238px;
   height: 72px;
 }
 
 .b2 > .counter:nth-child(6) {
   position: absolute;
   top: 104px;
-  left: 45px;
-  width: 263px;
+  left: 77px;
+  width: 231px;
   height: 8px;
   transform: skewX(-45deg);
 }
@@ -206,8 +206,8 @@ body {
 .b2 > .counter:nth-child(7) {
   position: absolute;
   top: 24px;
-  left: 45px;
-  width: 263px;
+  left: 77px;
+  width: 231px;
   height: 8px;
   transform: skewX(45deg);
 }
@@ -215,8 +215,8 @@ body {
 .b2 > .counter:nth-child(8) {
   position: absolute;
   bottom: 104px;
-  left: 45px;
-  width: 263px;
+  left: 77px;
+  width: 231px;
   height: 8px;
   transform: skewX(45deg);
 }
@@ -224,8 +224,8 @@ body {
 .b2 > .counter:nth-child(9) {
   position: absolute;
   bottom: 24px;
-  left: 45px;
-  width: 263px;
+  left: 77px;
+  width: 231px;
   height: 8px;
   transform: skewX(-45deg);
 }
@@ -233,16 +233,145 @@ body {
 .b2 > .counter:nth-child(10) {
   position: absolute;
   top: 24px;
-  left: 40px;
+  left: 72px;
   width: 16px;
   height: 88px;
 }
 
-
 .b2 > .counter:nth-child(11) {
   position: absolute;
   bottom: 24px;
-  left: 40px;
+  left: 72px;
   width: 16px;
   height: 88px;
+}
+
+.b2 > .top-serif.white {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 32px;
+  height: 48px;
+}
+
+.b2 > .top-serif.black {
+  position: absolute;
+  top: 20px;
+  left: -32px;
+  width: 64px;
+  height: 64px;
+}
+
+.b2 > .bottom-serif.white {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 32px;
+  height: 48px;
+}
+
+.b2 > .bottom-serif.black {
+  position: absolute;
+  bottom: 20px;
+  left: -32px;
+  width: 64px;
+  height: 64px;
+}
+
+.b3-wrapper {
+  position: absolute;
+  width: 160px;
+  height: 610px;
+  top: 56px;
+  left: 480px;
+}
+
+.b3 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.b3 > .stem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 32px;
+  height: 100%;
+}
+
+.b3 > .crossbars {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.b3 > .crossbars > .crossbar {
+  height: 32px;
+  width: 100px;
+}
+
+.b3 > .diagonal:nth-child(3) {
+  position: absolute;
+  top: 0px;
+  right: 29px;
+  width: 32px;
+  height: 100px;
+  transform: skewX(30deg);
+}
+
+.b3 > .diagonal:nth-child(4) {
+  position: absolute;
+  top: 220px;
+  right: 29px;
+  width: 32px;
+  height: 100px;
+  transform: skewX(-30deg);
+}
+
+.b3 > .diagonal:nth-child(5) {
+  position: absolute;
+  bottom: 220px;
+  right: 29px;
+  width: 32px;
+  height: 100px;
+  transform: skewX(30deg);
+}
+
+.b3 > .diagonal:nth-child(6) {
+  position: absolute;
+  bottom: 0px;
+  right: 29px;
+  width: 32px;
+  height: 100px;
+  transform: skewX(-30deg);
+}
+
+.b3 > .upper-bowl {
+  position: absolute;
+  top: 100px;
+  right: 0px;
+  width: 32px;
+  height: 120px;
+}
+
+.b3 > .lower-bowl {
+  position: absolute;
+  bottom: 100px;
+  right: 0px;
+  width: 32px;
+  height: 120px;
+}
+
+.gradient {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--black) 20%, var(--dark-blue) 55%, var(--red) 75%, var(--grey) 90%, var(--white) 100%);
+  mix-blend-mode: difference;
+  opacity: 1;
 }
