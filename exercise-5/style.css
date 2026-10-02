@@ -7,6 +7,10 @@ body {
   --white-transparent: rgba(237, 237, 237, 0);
 
   background-color: var(--black);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
 }
 
 .red {
@@ -39,7 +43,7 @@ body {
   width: 420px;
   height: 300px;
   position: relative;
-  transform: translate(-72px, 50px);
+  transform: translate(-40px, 260px);
 }
 
 .b1 > .upper-bowl {
@@ -128,6 +132,10 @@ body {
   width: 32px;
   height: 10px;
   transform: skewX(-45deg);
+}
+
+.b1:hover > .upper-bowl {
+  width: 300px;
 }
 
 .gradient {
