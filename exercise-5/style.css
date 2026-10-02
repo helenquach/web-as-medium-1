@@ -212,7 +212,7 @@ body {
 }
 
 .b1:hover ~ .hover-circle-wrapper > .hover-circle {
-  animation: expandCircle 1.5s linear forwards;
+  animation: expandCircle 1.5s ease-in forwards;
 }
 
 @keyframes expandCircle {
