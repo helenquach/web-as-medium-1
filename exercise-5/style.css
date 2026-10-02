@@ -10,7 +10,9 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .red {
@@ -44,6 +46,7 @@ body {
   height: 300px;
   position: relative;
   transform: translate(-40px, 260px);
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .upper-bowl {
@@ -53,6 +56,7 @@ body {
   width: 220px;
   height: 100px;
   border-radius: 0px 120px 120px 0px;
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .lower-bowl {
@@ -62,24 +66,27 @@ body {
   width: 270px;
   height: 200px;
   border-radius: 0px 120px 120px 0px;
+  transition: all 1s ease-in-out;
 }
 
-.b1 > .upper-bowl > .counter:nth-child(1) {
+.b1 > .upper-bowl > .counter {
   position: absolute;
   top: 6px;
   right: 20px;
   width: 160px;
   height: 90px;
   border-radius: 0px 120px 120px 0px;
+  transition: all 1s ease-in-out;
 }
 
-.b1 > .lower-bowl > .counter:nth-child(1) {
+.b1 > .lower-bowl > .counter {
   position: absolute;
   bottom: 6px;
   right: 20px;
   width: 210px;
   height: 190px;
   border-radius: 0px 120px 120px 0px;
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .waist {
@@ -88,6 +95,7 @@ body {
   right: 96px;
   width: 100px;
   height: 8px;
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .stem {
@@ -97,6 +105,7 @@ body {
   width: 160px;
   height: 300px;
   border-radius: 0px 150px 150px 0px;
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .stem > .stem {
@@ -106,6 +115,7 @@ body {
   width: 140px;
   height: 280px;
   border-radius: 0px 150px 150px 0px;
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .foreground {
@@ -119,23 +129,108 @@ body {
 .b1 > .top-serif {
   position: absolute;
   top: 0px;
-  right: 260px;
+  left: 120px;
   width: 32px;
   height: 10px;
   transform: skewX(45deg);
+  transition: all 1s ease-in-out;
 }
 
 .b1 > .bottom-serif {
   position: absolute;
   bottom: 0px;
-  right: 260px;
+  left: 120px;
   width: 32px;
   height: 10px;
   transform: skewX(-45deg);
+  transition: all 1s ease-in-out;
+}
+
+.b1:hover {
+  width: 820px;
 }
 
 .b1:hover > .upper-bowl {
-  width: 300px;
+  width: 620px;
+}
+
+.b1:hover > .upper-bowl > .counter {
+  right: 120px;
+  width: 400px;
+}
+
+.b1:hover > .lower-bowl {
+  width: 670px;
+}
+
+.b1:hover > .lower-bowl > .counter {
+  right: 120px;
+  width: 540px;
+}
+
+.b1:hover > .stem {
+  left: 80px;
+  width: 360px;
+}
+
+.b1:hover > .stem > .stem {
+  width: 220px;
+}
+
+.b1:hover > .top-serif {
+  top: 0px;
+  left: 70px;
+}
+
+.b1:hover > .bottom-serif {
+  position: absolute;
+  left: 70px;
+}
+
+.b1:hover > .waist {
+}
+
+.hover-circle-wrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: difference;
+}
+
+.hover-circle {
+  width: 0px;
+  height: 0px;
+  background-color: var(--red);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.b1:hover ~ .hover-circle-wrapper > .hover-circle {
+  animation: expandCircle 1.5s linear forwards;
+}
+
+@keyframes expandCircle {
+  0% {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+  }
+  75% {
+    width: 100vw;
+    height: 100vw;
+    border-radius: 50%;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    border-radius: 0%;
+  }
 }
 
 .gradient {
@@ -147,4 +242,10 @@ body {
   background: linear-gradient(to bottom, var(--black) 20%, var(--dark-blue) 55%, var(--red) 75%, var(--grey) 90%, var(--white) 100%);
   mix-blend-mode: difference;
   opacity: 1;
+  pointer-events: none;
+  transition: all 1s ease-in-out;
+}
+
+.b1:hover + .gradient {
+  opacity: 0;
 }
