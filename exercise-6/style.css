@@ -54,7 +54,7 @@ body {
   cursor: pointer;
 }
 
-.letter {
+.letter-wrapper {
   display: inline;
   margin: 0;
   padding: 0;
@@ -64,56 +64,61 @@ body {
   transition: all 1s ease-in-out;
 }
 
-#letter-t {
+.letter {
+  width: 100%;
+  height: 100%;
+}
+
+#letter-t-wrapper {
   transform: translate(var(--start-text-position-x), var(--start-text-position-y));
 }
 
-#letter-t.active {
+#letter-t-wrapper.active {
   transform: translate(32px, 0px);
   font-size: 8rem;
 }
 
-#letter-o {
+#letter-o-wrapper {
   transform: translate(calc(var(--start-text-position-x) + 6px), var(--start-text-position-y));
 }
 
-#letter-o.active {
+#letter-o-wrapper.active {
   transform: translate(32px, var(--middle-text-position-y));
   font-size: 8rem;
 }
 
-#letter-g-1 {
+#letter-g-1-wrapper {
   transform: translate(calc(var(--start-text-position-x) + 16px), var(--start-text-position-y));
 }
 
-#letter-g-1.active {
+#letter-g-1-wrapper.active {
   transform: translate(32px, var(--bottom-text-position-y));
   font-size: 8rem;
 }
 
-#letter-g-2 {
+#letter-g-2-wrapper {
   transform: translate(calc(var(--start-text-position-x) + 26px), var(--start-text-position-y));
 }
 
-#letter-g-2.active {
+#letter-g-2-wrapper.active {
   transform: translate(var(--right-text-position-x), 0px);
   font-size: 8rem;
 }
 
-#letter-l {
+#letter-l-wrapper {
   transform: translate(calc(var(--start-text-position-x) + 36px), var(--start-text-position-y));
 }
 
-#letter-l.active {
+#letter-l-wrapper.active {
   transform: translate(calc(var(--right-text-position-x) + 16px), var(--middle-text-position-y));
   font-size: 8rem;
 }
 
-#letter-e {
+#letter-e-wrapper {
   transform: translate(calc(var(--start-text-position-x) + 41px), var(--start-text-position-y));
 }
 
-#letter-e.active {
+#letter-e-wrapper.active {
   transform: translate(var(--right-text-position-x), var(--bottom-text-position-y));
   font-size: 8rem;
 }
@@ -127,38 +132,38 @@ body {
 }
 
 #letter-g-1.effect {
-  animation: letter-g-scale 2s linear infinite;
+  animation: letter-g-1-scale 2s linear infinite;
 }
 
 @keyframes letter-t-spin {
   0% {
-    transform: translate(32px, 0px) rotate(0deg);
+    transform: rotate(0deg);
   }
   100% {
-    transform: translate(32px, 0px) rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
 @keyframes letter-o-flip {
   0% {
-    transform: translate(32px, var(--middle-text-position-y)) scaleX(1);
+    transform: scaleX(1);
   }
   50% {
-    transform: translate(32px, var(--middle-text-position-y)) scaleX(0);
+    transform: scaleX(0);
   }
   100% {
-    transform: translate(32px, var(--middle-text-position-y)) scaleX(-1);
+    transform: scaleX(-1);
   }
 }
 
-@keyframes letter-g-scale {
+@keyframes letter-g-1-scale {
   0% {
-    transform: translate(32px, var(--bottom-text-position-y)) scaleX(1);
+    transform: translate(0,0) scaleX(1);
   }
   50% {
-    transform: translate(150px, var(--bottom-text-position-y)) scaleX(6);
+    transform: translate(128px, 0) scaleX(6);
   }
   100% {
-    transform: translate(32px, var(--bottom-text-position-y)) scaleX(1);
+    transform: translate(0,0) scaleX(1);
   }
 }
