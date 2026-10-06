@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  --brown: #453325;
+  --dark-brown: #1e0c05;
+  --green: #77842c;
+  --light-green: #b7ce5b;
+
+  --background-color: var(--brown);
+  --text-color: var(--light-green);
+
+  --start-text-position-x: calc(50vw - 24px);
+  --start-text-position-y: calc(50vh - 10px);
+
+  --middle-text-position-y: calc(50vh - 96px);
+  --bottom-text-position-y: calc(100vh - 182px);
+
+  --right-text-position-x: calc(100vw - 96px);
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 20px;
+}
+
+.toggle {
+  display: flex;
+  gap: 0px;
+}
+
+.toggle:hover {
+  cursor: pointer;
+}
+
+.reset {
+  display: none;
+  color: var(--dark-brown);
+  bottom: 16px;
+}
+
+.reset.active {
+  display: block;
+}
+
+.reset:hover {
+  cursor: pointer;
+}
+
+.letter {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 1s ease-in-out;
+}
+
+#letter-t {
+  transform: translate(var(--start-text-position-x), var(--start-text-position-y));
+}
+
+#letter-t.active {
+  transform: translate(32px, 0px);
+  font-size: 8rem;
+}
+
+#letter-o {
+  transform: translate(calc(var(--start-text-position-x) + 6px), var(--start-text-position-y));
+}
+
+#letter-o.active {
+  transform: translate(32px, var(--middle-text-position-y));
+  font-size: 8rem;
+}
+
+#letter-g-1 {
+  transform: translate(calc(var(--start-text-position-x) + 16px), var(--start-text-position-y));
+}
+
+#letter-g-1.active {
+  transform: translate(32px, var(--bottom-text-position-y));
+  font-size: 8rem;
+}
+
+#letter-g-2 {
+  transform: translate(calc(var(--start-text-position-x) + 26px), var(--start-text-position-y));
+}
+
+#letter-g-2.active {
+  transform: translate(var(--right-text-position-x), 0px);
+  font-size: 8rem;
+}
+
+#letter-l {
+  transform: translate(calc(var(--start-text-position-x) + 36px), var(--start-text-position-y));
+}
+
+#letter-l.active {
+  transform: translate(calc(var(--right-text-position-x) + 16px), var(--middle-text-position-y));
+  font-size: 8rem;
+}
+
+#letter-e {
+  transform: translate(calc(var(--start-text-position-x) + 41px), var(--start-text-position-y));
+}
+
+#letter-e.active {
+  transform: translate(var(--right-text-position-x), var(--bottom-text-position-y));
+  font-size: 8rem;
+}
+
+#letter-t.effect {
+  animation: letter-t-spin 4s linear infinite;
+}
+
+#letter-o.effect {
+  animation: letter-o-flip 2s linear infinite;
+}
+
+#letter-g-1.effect {
+  animation: letter-g-scale 2s linear infinite;
+}
+
+@keyframes letter-t-spin {
+  0% {
+    transform: translate(32px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(32px, 0px) rotate(360deg);
+  }
+}
+
+@keyframes letter-o-flip {
+  0% {
+    transform: translate(32px, var(--middle-text-position-y)) scaleX(1);
+  }
+  50% {
+    transform: translate(32px, var(--middle-text-position-y)) scaleX(0);
+  }
+  100% {
+    transform: translate(32px, var(--middle-text-position-y)) scaleX(-1);
+  }
+}
+
+@keyframes letter-g-scale {
+  0% {
+    transform: translate(32px, var(--bottom-text-position-y)) scaleX(1);
+  }
+  50% {
+    transform: translate(150px, var(--bottom-text-position-y)) scaleX(6);
+  }
+  100% {
+    transform: translate(32px, var(--bottom-text-position-y)) scaleX(1);
+  }
+}
