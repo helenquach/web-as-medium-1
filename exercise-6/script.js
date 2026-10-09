@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Your code here
   const letterWrappers = document.querySelectorAll(".letter-wrapper");
   const toggle = document.querySelector(".toggle");
   const reset = document.querySelector(".reset");
