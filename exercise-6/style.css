@@ -17,6 +17,11 @@ body {
 
   --right-text-position-x: calc(100vw - 96px);
   --effect-e-width: calc(var(--right-text-position-x) - 96px);
+  --effect-e-x-1: calc(var(--effect-e-width) / 5);
+  --effect-e-x-2: calc(var(--effect-e-width) * 2 / 5);
+  --effect-e-x-3: calc(var(--effect-e-width) * 3 / 5);
+  --effect-e-x-4: calc(var(--effect-e-width) * 4 / 5);
+  --effect-e-x-5: calc(var(--effect-e-width) * 5 / 5);
   --starting-effect-e-height: calc(-1 * 8rem);
 
   background-color: var(--background-color);
@@ -201,6 +206,7 @@ body:has(#letter-g-2.effect) {
   left: 0;
   font-size: 8rem;
   color: var(--green);
+  cursor: default;
 }
 
 .toggle:has(#letter-e.effect) ~ .effect-e-group {
@@ -222,38 +228,38 @@ body:has(#letter-g-2.effect) {
 }
 
 .effect-e:nth-child(1) {
-  transform: translate(calc(var(--effect-e-width) * 0.2), var(--starting-effect-e-height)) rotate(0deg);
+  transform: translate(var(--effect-e-x-1), var(--starting-effect-e-height)) rotate(0deg);
 }
 .effect-e:nth-child(2) {
-  transform: translate(calc(var(--effect-e-width) * 0.4), var(--starting-effect-e-height)) rotate(0deg);
+  transform: translate(var(--effect-e-x-2), var(--starting-effect-e-height)) rotate(0deg);
 }
 .effect-e:nth-child(3) {
-  transform: translate(calc(var(--effect-e-width) * 0.6), var(--starting-effect-e-height)) rotate(0deg);
+  transform: translate(var(--effect-e-x-3), var(--starting-effect-e-height)) rotate(0deg);
 }
 .effect-e:nth-child(4) {
-  transform: translate(calc(var(--effect-e-width) * 0.8), var(--starting-effect-e-height)) rotate(0deg);
+  transform: translate(var(--effect-e-x-4), var(--starting-effect-e-height)) rotate(0deg);
 }
 .effect-e:nth-child(5) {
-  transform: translate(calc(var(--effect-e-width) * 1), var(--starting-effect-e-height)) rotate(0deg);
+  transform: translate(var(--effect-e-x-5), var(--starting-effect-e-height)) rotate(0deg);
 }
 
 .toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(1) {
-  transform: translate(calc(var(--effect-e-width) * 0.2), calc(var(--bottom-text-position-y) - 128px)) rotate(-25deg);
+  transform: translate(var(--effect-e-x-1), calc(var(--bottom-text-position-y) - 128px)) rotate(-25deg);
   transition: transform 0.8s ease-in-out;
 }
 .toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(2) {
-  transform: translate(calc(var(--effect-e-width) * 0.4), 72px) rotate(15deg);
+  transform: translate(var(--effect-e-x-2), 72px) rotate(15deg);
   transition: transform 0.8s ease-in-out;
 }
 .toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(3) {
-  transform: translate(calc(var(--effect-e-width) * 0.6), calc(var(--middle-text-position-y) - 96px)) rotate(-10deg);
+  transform: translate(var(--effect-e-x-3), calc(var(--middle-text-position-y) - 96px)) rotate(-10deg);
   transition: transform 0.8s ease-in-out;
 }
 .toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(4) {
-  transform: translate(calc(var(--effect-e-width) * 0.8), calc(var(--bottom-text-position-y) - 200px)) rotate(-45deg);
+  transform: translate(var(--effect-e-x-4), calc(var(--bottom-text-position-y) - 200px)) rotate(-45deg);
   transition: transform 0.8s ease-in-out;
 }
 .toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(5) {
-  transform: translate(calc(var(--effect-e-width) * 1), calc(var(--middle-text-position-y) + 32px)) rotate(25deg);
+  transform: translate(var(--effect-e-x-5), calc(var(--middle-text-position-y) + 32px)) rotate(25deg);
   transition: transform 0.8s ease-in-out;
 }
