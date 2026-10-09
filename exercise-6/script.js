@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.addEventListener("click", () => {
     if (!letterWrappers[0].classList.contains("active")) {
       letterWrappers.forEach((letterWrapper) => {
+        letterWrapper.style.setProperty("transition", "transform 0.8s ease-in-out, font-size 0.8s ease-in-out");
         letterWrapper.classList.toggle("active");
       });
       reset.classList.toggle("active");
@@ -27,17 +28,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
+    letterWrapper.addEventListener("transitionend", () => {
+      letterWrapper.style.setProperty("transition", "none");
+    });
   });
 
   reset.addEventListener("click", () => {
     letterWrappers.forEach((letterWrapper) => {
+      letterWrapper.style.setProperty("transition", "transform 0.8s ease-in-out, font-size 0.8s ease-in-out");
+
       const letter = letterWrapper.querySelector(".letter");
       letter.classList.remove("effect");
       letterWrapper.classList.toggle("active");
     });
-    effectEs.forEach((effectE) => {
+    reset.classList.toggle("active");
+  });
+
+  effectEs.forEach((effectE) => {
+    effectE.addEventListener("transitionend", () => {
       effectE.style.setProperty("transition", "none");
     });
-    reset.classList.toggle("active");
   });
 });
