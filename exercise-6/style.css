@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
   --brown: #453325;
@@ -16,6 +16,8 @@ body {
   --bottom-text-position-y: calc(100vh - 182px);
 
   --right-text-position-x: calc(100vw - 96px);
+  --effect-e-width: calc(var(--right-text-position-x) - 96px);
+  --starting-effect-e-height: calc(-1 * 8rem);
 
   background-color: var(--background-color);
   color: var(--text-color);
@@ -29,11 +31,14 @@ body {
 
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 20px;
+
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .toggle {
   display: flex;
   gap: 0px;
+  cursor: default;
 }
 
 .toggle:hover {
@@ -44,6 +49,8 @@ body {
   display: none;
   color: var(--dark-brown);
   bottom: 16px;
+  cursor: default;
+  transition: color 0.5s ease;
 }
 
 .reset.active {
@@ -61,7 +68,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transition: all 1s ease-in-out;
+  transition: transform 0.8s ease-in-out, font-size 0.8s ease-in-out, color 0.5s ease;
 }
 
 .letter {
@@ -124,18 +131,36 @@ body {
 }
 
 #letter-t.effect {
-  animation: letter-t-spin 4s linear infinite;
+  animation: spin 4s linear infinite;
 }
 
 #letter-o.effect {
-  animation: letter-o-flip 2s linear infinite;
+  animation: flip 2s linear infinite;
 }
 
 #letter-g-1.effect {
-  animation: letter-g-1-scale 2s linear infinite;
+  animation: expand-right 3s linear infinite;
 }
 
-@keyframes letter-t-spin {
+body:has(#letter-g-2.effect) {
+  background-color: var(--light-green);
+  color: var(--dark-brown);
+}
+
+.toggle:has(#letter-g-2.effect) ~ .reset {
+  color: var(--green);
+}
+
+.toggle:has(#letter-g-2.effect) ~ .effect-e-group {
+  color: var(--brown);
+}
+
+#letter-l.effect {
+  font-family: "Eagle Lake", serif;
+  font-size: 6rem;
+}
+
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -144,7 +169,7 @@ body {
   }
 }
 
-@keyframes letter-o-flip {
+@keyframes flip {
   0% {
     transform: scaleX(1);
   }
@@ -156,7 +181,7 @@ body {
   }
 }
 
-@keyframes letter-g-1-scale {
+@keyframes expand-right {
   0% {
     transform: translate(0,0) scaleX(1);
   }
@@ -166,4 +191,69 @@ body {
   100% {
     transform: translate(0,0) scaleX(1);
   }
+}
+
+
+.effect-e-group {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 8rem;
+  color: var(--green);
+}
+
+.toggle:has(#letter-e.effect) ~ .effect-e-group {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+.effect-e {
+  display: inline;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  transition: none;
+}
+
+.effect-e:nth-child(1) {
+  transform: translate(calc(var(--effect-e-width) * 0.2), var(--starting-effect-e-height)) rotate(0deg);
+}
+.effect-e:nth-child(2) {
+  transform: translate(calc(var(--effect-e-width) * 0.4), var(--starting-effect-e-height)) rotate(0deg);
+}
+.effect-e:nth-child(3) {
+  transform: translate(calc(var(--effect-e-width) * 0.6), var(--starting-effect-e-height)) rotate(0deg);
+}
+.effect-e:nth-child(4) {
+  transform: translate(calc(var(--effect-e-width) * 0.8), var(--starting-effect-e-height)) rotate(0deg);
+}
+.effect-e:nth-child(5) {
+  transform: translate(calc(var(--effect-e-width) * 1), var(--starting-effect-e-height)) rotate(0deg);
+}
+
+.toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(1) {
+  transform: translate(calc(var(--effect-e-width) * 0.2), calc(var(--bottom-text-position-y) - 128px)) rotate(-25deg);
+  transition: transform 0.8s ease-in-out;
+}
+.toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(2) {
+  transform: translate(calc(var(--effect-e-width) * 0.4), 72px) rotate(15deg);
+  transition: transform 0.8s ease-in-out;
+}
+.toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(3) {
+  transform: translate(calc(var(--effect-e-width) * 0.6), calc(var(--middle-text-position-y) - 96px)) rotate(-10deg);
+  transition: transform 0.8s ease-in-out;
+}
+.toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(4) {
+  transform: translate(calc(var(--effect-e-width) * 0.8), calc(var(--bottom-text-position-y) - 200px)) rotate(-45deg);
+  transition: transform 0.8s ease-in-out;
+}
+.toggle:has(#letter-e.effect) ~ .effect-e-group > .effect-e:nth-child(5) {
+  transform: translate(calc(var(--effect-e-width) * 1), calc(var(--middle-text-position-y) + 32px)) rotate(25deg);
+  transition: transform 0.8s ease-in-out;
 }
