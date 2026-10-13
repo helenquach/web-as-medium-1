@@ -225,6 +225,7 @@ body:has(#letter-g-2.effect) {
   top: 0;
   left: 0;
   transition: none;
+  pointer-events: none;
 }
 
 .effect-e:nth-child(1) {
