@@ -42,6 +42,7 @@ body {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: width 0.1s ease, height 0.1s ease;
+  filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .2));
 }
 
 .cursor svg {
@@ -52,8 +53,7 @@ body {
 .cursor.hover {
   width: 2.5em;
   height: 2.5em;
-  color: white;
-  mix-blend-mode: difference;
+  color: var(--pink);
 }
 
 .federo {
@@ -125,7 +125,7 @@ nav a:hover {
 
 .frame .preview {
   display: block;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: max-content;
@@ -156,7 +156,7 @@ nav a:hover {
 }
 
 .frame:hover .preview {
-  animation: expandPreviewLeft 0.8s ease-in-out 0.5s forwards;
+  animation: expandPreviewLeft 0.5s ease-in-out 0.5s forwards;
 }
 
 @keyframes expandPreviewLeft {
@@ -165,7 +165,7 @@ nav a:hover {
     height: fit-content;
     clip-path: inset(0 100% 0 0);
   }
-  80% {
+  75% {
     clip-path: inset(0 0 0 0);
   }
   100% {
@@ -177,7 +177,7 @@ nav a:hover {
 }
 
 .frame.right:hover .preview {
-  animation: expandPreviewRight 0.8s ease-in-out 0.5s forwards;
+  animation: expandPreviewRight 0.5s ease-in-out 0.5s forwards;
 }
 
 @keyframes expandPreviewRight {
@@ -186,7 +186,7 @@ nav a:hover {
     height: fit-content;
     clip-path: inset(0 0 0 100%);
   }
-  80% {
+  75% {
     clip-path: inset(0 0 0 0);
   }
   100% {
@@ -201,7 +201,7 @@ nav a:hover {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin-bottom: 0.25em;
 }
 
