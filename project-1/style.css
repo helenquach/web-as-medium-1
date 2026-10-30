@@ -42,7 +42,7 @@ body {
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: width 0.1s ease, height 0.1s ease;
-  filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .2));
+  filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .25));
 }
 
 .cursor svg {
@@ -155,17 +155,18 @@ nav a:hover {
   );
 }
 
-.frame:hover .preview {
-  animation: expandPreviewLeft 0.5s ease-in-out 0.5s forwards;
+a:hover ~ .preview {
+  animation: expandPreviewLeft 0.5s ease-in-out 0.35s forwards;
 }
 
 @keyframes expandPreviewLeft {
   0% {
-    padding-right: 2em;
+    padding-right: 1.25em;
     height: fit-content;
     clip-path: inset(0 100% 0 0);
   }
-  75% {
+  80% {
+    padding-right: 1.25em;
     clip-path: inset(0 0 0 0);
   }
   100% {
@@ -176,17 +177,18 @@ nav a:hover {
   }
 }
 
-.frame.right:hover .preview {
+.frame.right a:hover ~ .preview {
   animation: expandPreviewRight 0.5s ease-in-out 0.5s forwards;
 }
 
 @keyframes expandPreviewRight {
   0% {
-    padding-left: 2em;
+    padding-left: 1.25em;
     height: fit-content;
     clip-path: inset(0 0 0 100%);
   }
-  75% {
+  80% {
+    padding-left: 1.25em;
     clip-path: inset(0 0 0 0);
   }
   100% {
@@ -206,9 +208,6 @@ nav a:hover {
 }
 
 .preview-date {
-  font-family: "Federo", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 1em;
 }
 
@@ -220,6 +219,10 @@ nav a:hover {
 #dunce {
   width: 80%;
   max-width: 800px;
+}
+
+#dunce a {
+  clip-path: ellipse(50% 50% at 50% 50%);
 }
 
 #military-cat {
