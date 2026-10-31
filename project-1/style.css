@@ -34,13 +34,12 @@ body {
   height: 1.5em;
   opacity: 0;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: -0.75em;
+  top: -0.75em;
   pointer-events: none;
   color: var(--green);
   mix-blend-mode: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
   transition: width 0.1s ease, height 0.1s ease;
   filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .25));
 }
@@ -72,6 +71,7 @@ nav {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-bottom: 2em;
 }
 
 nav ul {
@@ -88,20 +88,31 @@ nav a:hover {
 }
 
 #home-button {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.sort-buttons {
+  margin-bottom: 4em;
 }
 
 .frames {
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 2em;
+  row-gap: 1em;
   column-gap: 1em;
   width: 100%;
-  align-items: stretch;
+  align-items: center;
   padding-left: 2em;
   padding-right: 2em;
   margin-bottom: 4em;
+  justify-items: center;
+}
+
+.frames.featured {
+  row-gap: 6em;
+  align-items: start;
+  justify-items: start;
 }
 
 .frame {
@@ -110,7 +121,11 @@ nav a:hover {
   height: fit-content;
 }
 
-.frame.right {
+.frame.template {
+  display: none;
+}
+
+.frame.featured.right {
   justify-self: end;
 }
 
@@ -221,8 +236,9 @@ a:hover ~ .preview {
   max-width: 800px;
 }
 
-#dunce a {
+#dunce.featured a {
   clip-path: ellipse(50% 50% at 50% 50%);
+  transform: translate(10%, 40%);
 }
 
 #military-cat {
@@ -230,68 +246,139 @@ a:hover ~ .preview {
   max-width: 800px;
 }
 
+#military-cat.featured a {
+  transform: translate(20%, 20%);
+}
+
 #cat-dog-2 {
   width: 90%;
   max-width: 800px;
+}
+
+#cat-dog-2.featured a {
+  transform: translate(0px, 70%);
 }
 
 #cat-dog {
   width: 60%;
 }
 
+#cat-dog.featured a {
+  transform: translate(30%, 0px);
+}
+
+#christmas-cat.featured a {
+  transform: translate(0%, 20%);
+}
+
 #nurse-cat {
   width: 60%;
 }
 
-#brunehilde {
+#nurse-cat.featured a {
+  transform: translate(70%, -5%);
+}
+
+#brunnhilde {
   width: 70%;
 }
 
-#first-cat {
-  width: 80%;
+#brunnhilde.featured a {
+  transform: translate(-15%, 25%);
 }
 
-#cat-pair {
+#first-cat {
+  width: 90%;
+}
+
+#first-cat.featured a {
+  transform: translate(0%, 0);
+}
+
+#cat-pair.featured {
   width: 120%;
+}
+
+#cat-pair.featured a {
+  transform: translate(30%, 45%);
 }
 
 #edith-cats {
   width: 70%;
 }
 
-#cat-doll {
-  width: 90%;
+#edith-cats.featured a {
+  transform: translate(5%, -70%);
 }
 
-#cat-basket-2 {
+#cat-doll {
+  width: 100%;
+}
+
+#cat-doll.featured a {
+  transform: translate(0, -30%);
+}
+
+#cat-basket-2.featured {
   width: 120%;
 }
 
+#cat-basket-2.featured a {
+  transform: translate(0, 35%);
+}
+
 #alley-cat {
-  width: 80%;
+  width: 90%;
+}
+
+#alley-cat.featured a {
+  transform: translate(90%, 25%);
 }
 
 #cat-pair-2 {
   width: 70%;
 }
 
+#cat-pair-2.featured a {
+  transform: translate(100%, -40%);
+}
+
 #fluffy-cat {
   width: 80%;
+}
+
+#fluffy-cat.featured a {
+  transform: translate(0, 60%);
 }
 
 #hep {
   width: 85%;
 }
 
+#hep.featured a {
+  transform: translate(0, -10%);
+}
+
 #window-cat {
   width: 60%;
+}
+
+#window-cat.featured a {
+  transform: translate(0, -10%);
 }
 
 #bobbie {
   width: 100%;
 }
 
+#bobbie.featured a {
+  transform: translate(-20%, 40%);
+}
+
 #peta-cat {
   width: 80%;
 }
 
+#peta-cat.featured a {
+  transform: translate(0, 60%);
+}
