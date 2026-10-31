@@ -6,10 +6,54 @@
         <title></title><!--declaring the title, or name, of the HTML document. displayed in the browser's title bar-->
         <meta name="description" content=""><!--keywords/snippet for search engines-->
         <meta name="viewport" content="width=device-width"><!--the browser will (probably) render the width of the page at the width of its own screen -->
+        <link rel="stylesheet" href="./style.css">
     </head>
-    <body>
-      <h1 class="title">Herman and Vermin</h1>
-      <h2 class="date">1945-1950</h2>
+    <body class="background-pink color-dark-blue">
+      <nav>
+        <ul>
+          <li><a href="../index.html" id="home-button">Vintage Cats</a></li>
+          <li><a href="../about/index.html" id="about-button">About</a></li>
+        </ul>
+      </nav>
+      <main>
+        <a href="../index.html" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path fill="currentColor" d="M11.67 3.87L9.9 2.1L0 12l9.9 9.9l1.77-1.77L3.54 12z" />
+          </svg>
+          Back
+        </a>
+        <div class="content">
+          <div class="content-left">
+            <h1 class="title">Herman and Vermin</h1>
+            <h2 class="date">1945-1950</h2>
+            <p class="description">Description</p>
+            <div class="info">
+              <div class="cat-names">
+                <div class="property">Name of cat(s)</div>
+                <div class="value">Herman and Vermin</div>
+              </div>
+              <div class="author">
+                <div class="property">Author</div>
+                <div class="value">Frances Benjamin Johntson</div>
+              </div>
+              <div class="source">
+                <div class="property">Source</div>
+                <div class="value">Library of Congress</div>
+              </div>
+              <div class="tags">
+                <div class="property">Tag(s)</div>
+                <div class="value">two peas in a pod</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-right">
+            <div class="current-image">
+              <img src="../images/herman-and-vermin.png"/>
+            </div>
+          </div>
+        </div>
+      </main>
     </body>
 </html>
 

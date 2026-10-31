@@ -120,17 +120,18 @@ function sortCats(cats, sortBy) {
   }
 }
 
-function getCatFrames(cats, frameDiv, template) {
+function getCatFrames(cats, framesGrid, template) {
   cats.forEach((cat) => {
     const catFrame = template.cloneNode(true);
     catFrame.id = cat.id;
 
-    catFrame.addEventListener('mouseover', () => {
-      const preview = catFrame.querySelector('.preview');
-      catFrame.addEventListener('mousemove', e => {
-        preview.style.setProperty('--mouse-x', `${e.clientX}px`);
-        preview.style.setProperty('--mouse-y', `${e.clientY}px`);
-      });
+    const preview = catFrame.querySelector('.preview');
+    catFrame.addEventListener('mousemove', e => {
+      if (catFrame.classList.contains('right')) {
+        preview.style.transform = `translate(calc(${e.clientX}px - calc(100% + 2em)), ${e.clientY}px)`
+      } else {
+        preview.style.transform = `translate(calc(${e.clientX}px + 2em), ${e.clientY}px)`
+      }
     });
 
     const catFrameLink = catFrame.querySelector('a');
@@ -151,9 +152,9 @@ function getCatFrames(cats, frameDiv, template) {
     catFrame.querySelector('.preview-title').textContent = cat.title;
     catFrame.querySelector('.preview-date').textContent = cat.date;
     catFrame.classList.remove('template');
-    frameDiv.appendChild(catFrame);
+    framesGrid.appendChild(catFrame);
   })
-  return frameDiv.querySelectorAll('.frame');
+  return framesGrid.querySelectorAll('.frame');
 }
 
 

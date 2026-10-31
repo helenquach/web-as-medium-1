@@ -9,12 +9,13 @@ body {
   --orange: #CF5527;
   --cream: #EAE1CB;
 
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
+  padding: 0 4em;
 
   color: var(--green);
   background-color: var(--background-color);
@@ -26,6 +27,7 @@ body {
 }
 
 * {
+  box-sizing: border-box;
   cursor: none !important;
 }
 
@@ -80,7 +82,7 @@ nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em 2em;
+  padding: 0.5em 0;
 }
 
 nav a:hover {
@@ -103,8 +105,6 @@ nav a:hover {
   column-gap: 1em;
   width: 100%;
   align-items: center;
-  padding-left: 2em;
-  padding-right: 2em;
   margin-bottom: 4em;
   justify-items: center;
 }
@@ -151,10 +151,6 @@ nav a:hover {
   z-index: 9999;
 
   clip-path: inset(0 100% 0 0);
-  transform: translate(
-    calc(var(--mouse-x, 0px) + 2em),
-    calc(var(--mouse-y, 0px))
-  );
 
   transition: none;
 
@@ -164,10 +160,6 @@ nav a:hover {
 
 .frame.right .preview {
   clip-path: inset(0 0 0 100%);
-  transform: translate(
-    calc(var(--mouse-x, 0px) - calc(100% + 2em)),
-    calc(var(--mouse-y, 0px))
-  );
 }
 
 a:hover ~ .preview {
@@ -199,11 +191,13 @@ a:hover ~ .preview {
 @keyframes expandPreviewRight {
   0% {
     padding-left: 1.25em;
+    padding-right: 1em;
     height: fit-content;
     clip-path: inset(0 0 0 100%);
   }
   80% {
     padding-left: 1.25em;
+    padding-right: 1em;
     clip-path: inset(0 0 0 0);
   }
   100% {

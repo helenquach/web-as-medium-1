@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Federo&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --green: #6B7445;
+  --light-green: #95A748;
+  --pink: #DFB4BD;
+  --dark-blue: #204684;
+  --orange: #CF5527;
+  --cream: #EAE1CB;
+
+  width: 100%;
+  margin: 0;
+  padding: 0 4em;
+
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.background-pink {
+  background-color: var(--pink);
+}
+
+.color-dark-blue {
+  color: var(--dark-blue);
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 3em;
+}
+
+nav ul {
+  list-style-type: none;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+main {
+  width: 100%;
+}
+
+h1, h2 {
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#home-button {
+  font-size: 1.25em;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 8em;
+}
+
+.content-left {
+  width: 50%;
+}
+
+.back-button {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  transform: translate(-1em, 0);
+  margin-bottom: 2em;
+}
+
+.description {
+  margin-top: 6em;
+  margin-bottom: 6em;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.info > div {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1.5px solid;
+  border-bottom: 1.5px solid;
+  margin-bottom: -1.5px;
+  padding: 1.5em 0;
+}
+
+.property {
+  font-weight: 600;
+}
+
+.current-image {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+}
+
+.current-image img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
