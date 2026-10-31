@@ -126,7 +126,7 @@ function getCatFrames(cats, framesGrid, template) {
     catFrame.id = cat.id;
 
     const preview = catFrame.querySelector('.preview');
-    catFrame.addEventListener('mousemove', e => {
+    window.addEventListener('mousemove', e => {
       if (catFrame.classList.contains('right')) {
         preview.style.transform = `translate(calc(${e.clientX}px - calc(100% + 2em)), ${e.clientY}px)`
       } else {
