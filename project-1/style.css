@@ -106,6 +106,10 @@ nav a:hover {
 }
 
 .sort-buttons {
+  margin-bottom: 2em;
+}
+
+.tag-buttons {
   margin-bottom: 4em;
 }
 

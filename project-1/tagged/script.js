@@ -9,11 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let sortBy = 'featured';
   const filterTag = document.body.dataset.tag;
 
-  document.querySelector('.title').textContent = `Cats tagged '${filterTag}'`;
+  document.querySelector('.title').textContent = `Cats with the tag \u{2018}${filterTag}\u{2019}`;
 
   /* Create frames */
 
-  const frames = getCatFrames(filterCats(cats, filterTag), framesGrid, frameTemplate);
+  const frames = getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
 
   /* End create frames */
 
@@ -83,21 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
       sortButton.addEventListener('click', () => {
         sortBy = sortButton.dataset.sort;
         framesGrid.innerHTML = '';
-        const frames = getCatFrames(sortCats(cats, sortBy), framesGrid, frameTemplate);
+        const frames = getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
         for (let i = columns-1; i < frames.length; i += columns) {
           frames[i].classList.add('right');
         }
-        if (sortBy === 'featured') {
-          framesGrid.classList.add('featured');
-          frames.forEach((frame) => {
-            frame.classList.add('featured');
-          });
-        } else {
-          framesGrid.classList.remove('featured');
-          frames.forEach((frame) => {
-            frame.classList.remove('featured');
-          });
-        }
+        // if (sortBy === 'featured') {
+        //   framesGrid.classList.add('featured');
+        //   frames.forEach((frame) => {
+        //     frame.classList.add('featured');
+        //   });
+        // } else {
+        //   framesGrid.classList.remove('featured');
+        //   frames.forEach((frame) => {
+        //     frame.classList.remove('featured');
+        //   });
+        // }
       });
     });
 });

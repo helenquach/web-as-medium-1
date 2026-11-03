@@ -1,0 +1,20 @@
+{
+  "cats": [
+    {
+      "id": "herman-and-vermin",
+      "slug": "herman-and-vermin",
+      "title": "Herman and Vermin",
+      "date": "1945-1950",
+      "catName": "Herman and Vermin",
+      "sortByDate": "1945",
+      "author": "Frances Benjamin Johnston",
+      "source": "Library of Congress",
+      "tags": ["two peas in a pod"],
+      "fullImageSrc": "../images/herman-and-vermin-full.jpg",
+      "frameImageSrc": "../images/herman-and-vermin.png",
+      "backgroundColorClass": "background-pink",
+      "foregroundColorClass": "color-dark-blue",
+      "description": "Lorem ipsum"
+    }
+  ]
+}

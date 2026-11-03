@@ -43,6 +43,7 @@ h1 {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
+  margin-bottom: 2em;
 }
 
 .cursor {
@@ -112,7 +113,7 @@ nav a:hover {
 }
 
 .sort-buttons {
-  margin-bottom: 4em;
+  margin-bottom: 2em;
 }
 
 .frames {
