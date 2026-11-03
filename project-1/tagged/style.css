@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Federo&display=swap');
+
+body {
+  --background-color: #EAE1CB;
+  --green: #6B7445;
+  --light-green: #95A748;
+  --olive: #998731;
+  --pink: #DFB4BD;
+  --dark-blue: #204684;
+  --orange: #CF5527;
+  --cream: #EAE1CB;
+  --red: #94171F;
+  --dark-red: #7D2027;
+  --teal: #5FA8C2;
+  --blue: #7F929D;
+  --brown: #673C34;
+  --brown-alt: #5B3B1E;
+  --gold: #D2A432;
+
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 4em;
+
+  color: var(--green);
+  background-color: var(--background-color);
+
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+h1 {
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.cursor {
+  width: 1.5em;
+  height: 1.5em;
+  opacity: 0;
+  position: fixed;
+  left: -0.75em;
+  top: -0.75em;
+  pointer-events: none;
+  color: var(--green);
+  mix-blend-mode: normal;
+  z-index: 9999;
+  transition: width 0.1s ease, height 0.1s ease;
+  filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .25));
+}
+
+.cursor svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cursor.hover {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.cursor.difference {
+  color: white;
+  mix-blend-mode: difference;
+}
+
+.federo {
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+nav {
+  width: 100%;
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 2em;
+}
+
+nav ul {
+  list-style-type: none;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+#home-button {
+  font-size: 1.5rem;
+}
+
+.sort-buttons {
+  margin-bottom: 4em;
+}
+
+.frames {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 1em;
+  column-gap: 1em;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 4em;
+  justify-items: center;
+}
+
+.frames.featured {
+  row-gap: 6em;
+  align-items: start;
+  justify-items: start;
+}
+
+.frame {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+
+.frame.template {
+  display: none;
+}
+
+.frame.featured.right {
+  justify-self: end;
+}
+
+.frame img {
+  width: 100%;
+  height: auto;
+}
+
+.frame a:hover {
+  opacity: 0.9;
+}
+
+.frame .preview {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: 320px;
+  height: fit-content;
+  padding: 1em;
+  overflow: hidden;
+  z-index: 9999;
+
+  clip-path: inset(0 100% 0 0);
+
+  transition: none;
+}
+
+.frame.right .preview {
+  clip-path: inset(0 0 0 100%);
+}
+
+a:hover ~ .preview {
+  display: block;
+  animation: expandPreviewLeft 0.5s ease-in-out 0.35s forwards;
+}
+
+@keyframes expandPreviewLeft {
+  0% {
+    padding-right: 1.25em;
+    height: fit-content;
+    clip-path: inset(0 100% 0 0);
+  }
+  80% {
+    padding-right: 1.25em;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    padding: 1em;
+    width: max-content;
+    height: fit-content;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.frame.right a:hover ~ .preview {
+  display: block;
+  animation: expandPreviewRight 0.5s ease-in-out 0.5s forwards;
+}
+
+@keyframes expandPreviewRight {
+  0% {
+    padding-left: 1.25em;
+    padding-right: 1em;
+    height: fit-content;
+    clip-path: inset(0 0 0 100%);
+  }
+  80% {
+    padding-left: 1.25em;
+    padding-right: 1em;
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    padding: 1em;
+    width: max-content;
+    height: fit-content;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.preview-title {
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25em;
+  margin-bottom: 0.25em;
+}
+
+.preview-date {
+  font-size: 1em;
+}
+
+#herman-and-vermin {
+  width: 75%;
+  max-width: 800px;
+}
+
+#dunce {
+  width: 80%;
+  max-width: 800px;
+}
+
+#dunce.featured a {
+  clip-path: ellipse(50% 50% at 50% 50%);
+  transform: translate(10%, 40%);
+}
+
+#military-cat {
+  width: 80%;
+  max-width: 800px;
+}
+
+#military-cat.featured a {
+  transform: translate(20%, 20%);
+}
+
+#cat-dog-2 {
+  width: 90%;
+  max-width: 800px;
+}
+
+#cat-dog-2.featured a {
+  transform: translate(0px, 70%);
+}
+
+#cat-dog {
+  width: 60%;
+}
+
+#cat-dog.featured a {
+  transform: translate(30%, 0px);
+}
+
+#christmas-cat.featured a {
+  transform: translate(0%, 20%);
+}
+
+#nurse-cat {
+  width: 60%;
+}
+
+#nurse-cat.featured a {
+  transform: translate(70%, -5%);
+}
+
+#brunnhilde {
+  width: 70%;
+}
+
+#brunnhilde.featured a {
+  transform: translate(-15%, 25%);
+}
+
+#first-cat {
+  width: 90%;
+}
+
+#first-cat.featured a {
+  transform: translate(0%, 0);
+}
+
+#cat-pair.featured {
+  width: 120%;
+}
+
+#cat-pair.featured a {
+  transform: translate(30%, 45%);
+}
+
+#edith-cats {
+  width: 70%;
+}
+
+#edith-cats.featured a {
+  transform: translate(5%, -70%);
+}
+
+#cat-doll {
+  width: 100%;
+}
+
+#cat-doll.featured a {
+  transform: translate(0, -30%);
+}
+
+#cat-basket-2.featured {
+  width: 120%;
+}
+
+#cat-basket-2.featured a {
+  transform: translate(0, 35%);
+}
+
+#alley-cat {
+  width: 90%;
+}
+
+#alley-cat.featured a {
+  transform: translate(90%, 25%);
+}
+
+#cat-pair-2 {
+  width: 70%;
+}
+
+#cat-pair-2.featured a {
+  transform: translate(100%, -40%);
+}
+
+#fluffy-cat {
+  width: 80%;
+}
+
+#fluffy-cat.featured a {
+  transform: translate(0, 60%);
+}
+
+#hep {
+  width: 85%;
+}
+
+#hep.featured a {
+  transform: translate(0, -10%);
+}
+
+#window-cat {
+  width: 60%;
+}
+
+#window-cat.featured a {
+  transform: translate(0, -10%);
+}
+
+#bobbie {
+  width: 100%;
+}
+
+#bobbie.featured a {
+  transform: translate(-20%, 40%);
+}
+
+#peta-cat {
+  width: 80%;
+}
+
+#peta-cat.featured a {
+  transform: translate(0, 60%);
+}
+
+.background-pink {
+  background-color: var(--pink);
+}
+
+.background-orange {
+  background-color: var(--orange);
+}
+
+.background-green {
+  background-color: var(--green);
+}
+
+.background-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.background-red {
+  background-color: var(--red);
+}
+
+.background-blue {
+  background-color: var(--blue);
+}
+
+
+.background-teal {
+  background-color: var(--teal);
+}
+
+.background-brown {
+  background-color: var(--brown);
+}
+.background-brown-alt {
+  background-color: var(--brown-alt);
+}
+
+.background-gold {
+  background-color: var(--gold);
+}
+
+.background-dark-red {
+  background-color: var(--dark-red);
+}
+
+.color-dark-blue {
+  color: var(--dark-blue);
+}
+
+.color-blue {
+ color: var(--blue);
+}
+
+.color-teal {
+  color: var(--teal);
+}
+
+.color-green {
+  color: var(--green);
+}
+
+.color-light-green {
+  color: var(--light-green);
+}
+
+.color-olive {
+  color: var(--olive);
+}
+
+.color-cream {
+  color: var(--cream);
+}
+
+.color-pink {
+  color: var(--pink);
+}
+
+.color-gold {
+  color: var(--gold);
+}
+
+.color-orange {
+  color: var(--orange);
+}
+
+.color-brown {
+  color: var(--brown);
+}
+
+.color-brown-alt {
+  color: var(--brown-alt);
+}
+
+.color-red {
+  color: var(--red);
+}
+
+.color-dark-red {
+  color: var(--dark-red);
+}
+
+.hidden {
+  display: none;
+}

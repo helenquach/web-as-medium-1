@@ -286,6 +286,6 @@ h1, h2 {
   display: none;
 }
 
-.tag {
+.tag:hover {
   text-decoration: underline;
 }
