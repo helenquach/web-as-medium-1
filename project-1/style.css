@@ -4,10 +4,18 @@ body {
   --background-color: #EAE1CB;
   --green: #6B7445;
   --light-green: #95A748;
+  --olive: #998731;
   --pink: #DFB4BD;
   --dark-blue: #204684;
   --orange: #CF5527;
   --cream: #EAE1CB;
+  --red: #94171F;
+  --dark-red: #7D2027;
+  --teal: #5FA8C2;
+  --blue: #7F929D;
+  --brown: #673C34;
+  --brown-alt: #5B3B1E;
+  --gold: #D2A432;
 
   margin: 0 auto;
   display: flex;
@@ -40,7 +48,7 @@ body {
   top: -0.75em;
   pointer-events: none;
   color: var(--green);
-  mix-blend-mode: none;
+  mix-blend-mode: normal;
   z-index: 9999;
   transition: width 0.1s ease, height 0.1s ease;
   filter: drop-shadow( 1px 1px 1px rgba(0, 0, 0, .25));
@@ -54,7 +62,11 @@ body {
 .cursor.hover {
   width: 2.5em;
   height: 2.5em;
-  color: var(--pink);
+}
+
+.cursor.difference {
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .federo {
@@ -86,7 +98,7 @@ nav ul {
 }
 
 nav a:hover {
-  color: var(--light-green);
+  text-decoration: underline;
 }
 
 #home-button {
@@ -139,7 +151,7 @@ nav a:hover {
 }
 
 .frame .preview {
-  display: block;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -153,9 +165,6 @@ nav a:hover {
   clip-path: inset(0 100% 0 0);
 
   transition: none;
-
-  color: var(--dark-blue);
-  background-color: var(--pink);
 }
 
 .frame.right .preview {
@@ -163,6 +172,7 @@ nav a:hover {
 }
 
 a:hover ~ .preview {
+  display: block;
   animation: expandPreviewLeft 0.5s ease-in-out 0.35s forwards;
 }
 
@@ -185,6 +195,7 @@ a:hover ~ .preview {
 }
 
 .frame.right a:hover ~ .preview {
+  display: block;
   animation: expandPreviewRight 0.5s ease-in-out 0.5s forwards;
 }
 
@@ -375,4 +386,104 @@ a:hover ~ .preview {
 
 #peta-cat.featured a {
   transform: translate(0, 60%);
+}
+
+.background-pink {
+  background-color: var(--pink);
+}
+
+.background-orange {
+  background-color: var(--orange);
+}
+
+.background-green {
+  background-color: var(--green);
+}
+
+.background-dark-blue {
+  background-color: var(--dark-blue);
+}
+
+.background-red {
+  background-color: var(--red);
+}
+
+.background-blue {
+  background-color: var(--blue);
+}
+
+
+.background-teal {
+  background-color: var(--teal);
+}
+
+.background-brown {
+  background-color: var(--brown);
+}
+.background-brown-alt {
+  background-color: var(--brown-alt);
+}
+
+.background-gold {
+  background-color: var(--gold);
+}
+
+.background-dark-red {
+  background-color: var(--dark-red);
+}
+
+.color-dark-blue {
+  color: var(--dark-blue);
+}
+
+.color-blue {
+ color: var(--blue);
+}
+
+.color-teal {
+  color: var(--teal);
+}
+
+.color-green {
+  color: var(--green);
+}
+
+.color-light-green {
+  color: var(--light-green);
+}
+
+.color-olive {
+  color: var(--olive);
+}
+
+.color-cream {
+  color: var(--cream);
+}
+
+.color-pink {
+  color: var(--pink);
+}
+
+.color-gold {
+  color: var(--gold);
+}
+
+.color-orange {
+  color: var(--orange);
+}
+
+.color-brown {
+  color: var(--brown);
+}
+
+.color-brown-alt {
+  color: var(--brown-alt);
+}
+
+.color-red {
+  color: var(--red);
+}
+
+.color-dark-red {
+  color: var(--dark-red);
 }

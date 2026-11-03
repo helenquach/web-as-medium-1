@@ -28,21 +28,25 @@ document.addEventListener("DOMContentLoaded", () => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
 
-  document.querySelectorAll('a').forEach((link) => {
+  document.querySelectorAll('nav a').forEach((link) => {
     link.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
+      cursor.classList.add('difference');
     });
     link.addEventListener('mouseout', () => {
       cursor.classList.remove('hover');
+      cursor.classList.remove('difference');
     });
   });
 
   document.querySelectorAll('button').forEach((link) => {
     link.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
+      cursor.classList.add('difference');
     });
     link.addEventListener('mouseout', () => {
       cursor.classList.remove('hover');
+      cursor.classList.remove('difference');
     });
   });
 
@@ -126,6 +130,8 @@ function getCatFrames(cats, framesGrid, template) {
     catFrame.id = cat.id;
 
     const preview = catFrame.querySelector('.preview');
+    preview.classList.add(cat.backgroundColorClass);
+    preview.classList.add(cat.foregroundColorClass);
     window.addEventListener('mousemove', e => {
       if (catFrame.classList.contains('right')) {
         preview.style.transform = `translate(calc(${e.clientX}px - calc(100% + 2em)), ${e.clientY}px)`
@@ -137,16 +143,20 @@ function getCatFrames(cats, framesGrid, template) {
     const catFrameLink = catFrame.querySelector('a');
     catFrameLink.href = `./cats/${cat.slug}.html`;
 
+    const cursorColorClass = `color${cat.backgroundColorClass.substring(10)}`;
+
     const cursor = document.querySelector('.cursor');
     catFrameLink.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
+      cursor.classList.add(cursorColorClass);
     });
     catFrameLink.addEventListener('mouseout', () => {
       cursor.classList.remove('hover');
+      cursor.classList.remove(cursorColorClass);
     });
 
     const catFrameImg = catFrameLink.querySelector('img');
-    catFrameImg.src = cat.previewImageSrc;
+    catFrameImg.src = cat.frameImageSrc.substring(1);
     // catFrameImg.alt = cat.title;
 
     catFrame.querySelector('.preview-title').textContent = cat.title;
@@ -166,12 +176,15 @@ const cats = [
     slug: "herman-and-vermin",
     title: "Herman and Vermin",
     date: "1945-1950",
-    catName: "Herman, Vermin",
+    catName: "Herman and Vermin",
     sortByDate: "1945",
     author: "Frances Benjamin Johnston",
     source: "Library of Congress",
-    tags: [],
-    previewImageSrc: "./images/herman-and-vermin.png",
+    tags: ["two peas in a pod"],
+    fullImageSrc: "../images/herman-and-vermin-full.jpg",
+    frameImageSrc: "../images/herman-and-vermin.png",
+    backgroundColorClass: "background-pink",
+    foregroundColorClass: "color-dark-blue",
     description: "Lorem ipsum",
   },
   {
@@ -184,7 +197,10 @@ const cats = [
     author: "Eulalie Osgood Grover",
     source: "N/A",
     tags: [],
-    previewImageSrc: "./images/dunce.png",
+    fullImageSrc: "../images/dunce-full.jpg",
+    frameImageSrc: "../images/dunce.png",
+    backgroundColorClass: "background-orange",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -197,7 +213,10 @@ const cats = [
     author: "U.S.S. Relief",
     source: "Navy Medicine",
     tags: [],
-    previewImageSrc: "./images/military-cat.png",
+    fullImageSrc: "../images/military-cat-full.jpg",
+    frameImageSrc: "../images/military-cat.png",
+    backgroundColorClass: "background-green",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -210,7 +229,10 @@ const cats = [
     author: "Unknown",
     source: "State Library and Archives of Florida",
     tags: [],
-    previewImageSrc: "./images/cat-dog-2.png",
+    fullImageSrc: "../images/cat-dog-2-full.jpg",
+    frameImageSrc: "../images/cat-dog-2.png",
+    backgroundColorClass: "background-red",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -223,7 +245,10 @@ const cats = [
     author: "Unknown",
     source: "George Eastman Museum",
     tags: [],
-    previewImageSrc: "./images/cat-dog.png",
+    fullImageSrc: "../images/cat-dog-full.jpg",
+    frameImageSrc: "../images/cat-dog.png",
+    backgroundColorClass: "background-teal",
+    foregroundColorClass: "color-dark-blue",
     description: "Lorem ipsum",
   },
   {
@@ -236,7 +261,10 @@ const cats = [
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
-    previewImageSrc: "./images/christmas-cat.png",
+    fullImageSrc: "../images/christmas-cat-full.jpg",
+    frameImageSrc: "../images/christmas-cat.png",
+    backgroundColorClass: "background-brown",
+    foregroundColorClass: "color-pink",
     description: "Lorem ipsum",
   },
   {
@@ -249,12 +277,15 @@ const cats = [
     author: "Michael Zwerdling",
     source: "The National Library of Medicine",
     tags: [],
-    previewImageSrc: "./images/nurse-cat.png",
+    fullImageSrc: "../images/nurse-cat-full.jpg",
+    frameImageSrc: "../images/nurse-cat.png",
+    backgroundColorClass: "background-pink",
+    foregroundColorClass: "color-dark-red",
     description: "Lorem ipsum",
   },
   {
     id: "brunnhilde",
-    slug: "Brunnhilde",
+    slug: "brunnhilde",
     title: "Brünnhilde",
     date: "1936",
     catName: "Unknown",
@@ -262,7 +293,10 @@ const cats = [
     author: "Adolph Edward Weidhaas",
     source: "Library of Congress",
     tags: [],
-    previewImageSrc: "./images/brunehilde.png",
+    fullImageSrc: "../images/brunnhilde-full.jpg",
+    frameImageSrc: "../images/brunnhilde.png",
+    backgroundColorClass: "background-gold",
+    foregroundColorClass: "color-brown",
     description: "Lorem ipsum",
   },
   {
@@ -275,7 +309,10 @@ const cats = [
     author: "Unknown",
     source: "Houghton Library",
     tags: [],
-    previewImageSrc: "./images/first-cat.png",
+    fullImageSrc: "../images/first-cat-full.jpg",
+    frameImageSrc: "../images/first-cat.png",
+    backgroundColorClass: "background-dark-red",
+    foregroundColorClass: "color-gold",
     description: "Lorem ipsum",
   },
   {
@@ -288,7 +325,10 @@ const cats = [
     author: "Ivan Ives",
     source: "State Library of New South Wales",
     tags: [],
-    previewImageSrc: "./images/cat-pair.png",
+    fullImageSrc: "../images/cat-pair-full.jpg",
+    frameImageSrc: "../images/cat-pair.png",
+    backgroundColorClass: "background-blue",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -301,7 +341,10 @@ const cats = [
     author: "Edith Södergran",
     source: "The Society of Swedish Literature in Finland",
     tags: [],
-    previewImageSrc: "./images/edith-cats.png",
+    fullImageSrc: "../images/edith-cats-full.jpg",
+    frameImageSrc: "../images/edith-cats.png",
+    backgroundColorClass: "background-orange",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -314,7 +357,10 @@ const cats = [
     author: "Arnold Genthe",
     source: "Library of Congress",
     tags: [],
-    previewImageSrc: "./images/cat-doll.png",
+    fullImageSrc: "../images/cat-doll-full.jpg",
+    frameImageSrc: "../images/cat-doll.png",
+    backgroundColorClass: "background-green",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -327,7 +373,10 @@ const cats = [
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
-    previewImageSrc: "./images/cat-basket-2.png",
+    fullImageSrc: "../images/cat-basket-2-full.jpg",
+    frameImageSrc: "../images/cat-basket-2.png",
+    backgroundColorClass: "background-dark-blue",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -340,7 +389,10 @@ const cats = [
     author: "Unknown",
     source: "Mitchell Library, State Library of New South Wales and Courtesy ACP Magazine Ltd.",
     tags: [],
-    previewImageSrc: "./images/alley-cat.png",
+    fullImageSrc: "../images/alley-cat-full.jpg",
+    frameImageSrc: "../images/alley-cat.png",
+    backgroundColorClass: "background-brown-alt",
+    foregroundColorClass: "color-olive",
     description: "Lorem ipsum",
   },
   {
@@ -353,7 +405,10 @@ const cats = [
     author: "Unknown",
     source: "The National Archives of Norway",
     tags: [],
-    previewImageSrc: "./images/cat-pair-2.png",
+    fullImageSrc: "../images/cat-pair-2-full.jpg",
+    frameImageSrc: "../images/cat-pair-2.png",
+    backgroundColorClass: "background-dark-blue",
+    foregroundColorClass: "color-pink",
     description: "Lorem ipsum",
   },
   {
@@ -366,7 +421,10 @@ const cats = [
     author: "Frank Eugune",
     source: "Library of Congress",
     tags: [],
-    previewImageSrc: "./images/fluffy-cat.png",
+    fullImageSrc: "../images/fluffy-cat-full.jpg",
+    frameImageSrc: "../images/fluffy-cat.png",
+    backgroundColorClass: "background-teal",
+    foregroundColorClass: "color-brown-alt",
     description: "Lorem ipsum",
   },
   {
@@ -379,7 +437,10 @@ const cats = [
     author: "Unknown",
     source: "Library of Congress",
     tags: [],
-    previewImageSrc: "./images/hep.png",
+    fullImageSrc: "../images/hep-full.jpg",
+    frameImageSrc: "../images/hep.png",
+    backgroundColorClass: "background-blue",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -392,7 +453,10 @@ const cats = [
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
-    previewImageSrc: "./images/window-cat.png",
+    fullImageSrc: "../images/window-cat-full.jpg",
+    frameImageSrc: "../images/window-cat.png",
+    backgroundColorClass: "background-dark-red",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
   {
@@ -405,7 +469,10 @@ const cats = [
     author: "Sam Hood",
     source: "State Library of New South Wales",
     tags: [],
-    previewImageSrc: "./images/bobbie.png",
+    fullImageSrc: "../images/bobbie-full.jpg",
+    frameImageSrc: "../images/bobbie.png",
+    backgroundColorClass: "background-dark-blue",
+    foregroundColorClass: "color-pink",
     description: "Lorem ipsum",
   },
   {
@@ -418,7 +485,10 @@ const cats = [
     author: "Unknown",
     source: "The National Archives UK",
     tags: [],
-    previewImageSrc: "./images/peta-cat.png",
+    fullImageSrc: "../images/peta-cat-full.jpg",
+    frameImageSrc: "../images/peta-cat.png",
+    backgroundColorClass: "background-orange",
+    foregroundColorClass: "color-cream",
     description: "Lorem ipsum",
   },
 ]
