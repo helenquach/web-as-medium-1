@@ -11,12 +11,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const tagsValue = document.querySelector('.tags .value');
   if (tags.length > 0) {
     const tagTemplate = document.querySelector('.tag.template');
-    tags.forEach((tag, index) => {
+    tags.forEach((tag) => {
       const tagSlug = tagMap.get(tag);
       const tagElement = tagTemplate.cloneNode(true);
       const tagLink = tagElement.querySelector('a');
       tagLink.href = `../tagged/${tagSlug}.html`;
-      tagLink.textContent = tag;
+      tagLink.textContent = '#' + tag;
       tagElement.classList.remove('template');
       tagsValue.append(tagElement);
     })
@@ -83,6 +83,18 @@ document.addEventListener("DOMContentLoaded", () => {
       document.documentElement.scrollTop = 120;
     }
   });
+
+  const sortedCats = cats.toSorted((cat1, cat2) => parseInt(cat1.sortByDate) - parseInt(cat2.sortByDate)); // sorted by Date (Oldest to newest)
+  const thisCatIndex = sortedCats.findIndex((c) => cat.slug === c.slug);
+  console.log(thisCatIndex);
+  const prevLink = document.querySelector('a.prev-link');
+  const nextLink = document.querySelector('a.next-link');
+  if (prevLink && thisCatIndex > 0) {
+    prevLink.href = `./${sortedCats[thisCatIndex-1].slug}.html`;
+  }
+  if (nextLink && thisCatIndex < sortedCats.length - 1) {
+    nextLink.href = `./${sortedCats[thisCatIndex+1].slug}.html`;
+  }
 });
 
 function getCatData(slug) {

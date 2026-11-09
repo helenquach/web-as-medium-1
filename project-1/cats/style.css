@@ -167,6 +167,7 @@ nav a:hover {
 
 main {
   width: 100%;
+  margin-bottom: 8em;
 }
 
 h1, h2 {
@@ -179,12 +180,27 @@ h1, h2 {
   font-size: 1.25em;
 }
 
+.prev-next-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-link, .next-link {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.prev-link:hover, .next-link:hover {
+  text-decoration: underline;
+}
+
 .content {
   display: flex;
   width: 100%;
   justify-content: space-between;
   gap: 8em;
-  margin-bottom: 8em;
+  margin-bottom: 4em;
 }
 
 .content-left {
@@ -299,6 +315,10 @@ h1, h2 {
 
 .tags .value {
   line-height: 1.5em;
+}
+
+.tag {
+  display: inline;
 }
 
 .tag:hover {
