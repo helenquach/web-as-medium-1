@@ -197,7 +197,7 @@ const cats = [
     sortByDate: "1911",
     sortByFluffiness: 15,
     author: "Eulalie Osgood Grover",
-    source: "N/A",
+    source: "New York Public Library",
     tags: ["cats in hats"],
     fullImageSrc: "../images/dunce-full.jpg",
     frameImageSrc: "../images/dunce.png",
