@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sortedCats = cats.toSorted((cat1, cat2) => parseInt(cat1.sortByDate) - parseInt(cat2.sortByDate)); // sorted by Date (Oldest to newest)
   const thisCatIndex = sortedCats.findIndex((c) => cat.slug === c.slug);
-  console.log(thisCatIndex);
   const prevLink = document.querySelector('a.prev-link');
   const nextLink = document.querySelector('a.next-link');
   if (prevLink && thisCatIndex > 0) {
