@@ -79,25 +79,17 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // })  
 
-  document.querySelectorAll('.sort-button').forEach((sortButton) => {
+  const sortButtons = document.querySelectorAll('.sort-button');
+  sortButtons.forEach((sortButton) => {
       sortButton.addEventListener('click', () => {
+        sortButtons.forEach((s) => s.classList.remove('active'));
+        sortButton.classList.add('active');
         sortBy = sortButton.dataset.sort;
         framesGrid.innerHTML = '';
-        const frames = getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
+        const frames =  getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
         for (let i = columns-1; i < frames.length; i += columns) {
           frames[i].classList.add('right');
         }
-        // if (sortBy === 'featured') {
-        //   framesGrid.classList.add('featured');
-        //   frames.forEach((frame) => {
-        //     frame.classList.add('featured');
-        //   });
-        // } else {
-        //   framesGrid.classList.remove('featured');
-        //   frames.forEach((frame) => {
-        //     frame.classList.remove('featured');
-        //   });
-        // }
       });
     });
 });

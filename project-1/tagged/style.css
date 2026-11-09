@@ -44,6 +44,7 @@ h1 {
   font-weight: 400;
   font-style: normal;
   margin-bottom: 2em;
+  align-self: start;
 }
 
 .cursor {
@@ -109,13 +110,49 @@ nav a:hover {
 }
 
 #home-button {
-  font-size: 1.5rem;
+  font-size: 1.5em;
 }
 
 .sort-buttons {
   margin-bottom: 2em;
+  justify-content: start;
+  align-self: start;
 }
 
+.tag-buttons {
+  margin-bottom: 4em;
+  justify-content: start;
+  align-self: start;
+}
+
+.sort-button, .tag-button {
+  border-radius: 6em;
+  border: 1.5px solid;
+  color: var(--green);
+  background-color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9em;
+  padding: 0.25em 0.75em;
+}
+
+.sort-button:nth-child(1), .tag-button:nth-child(1) {
+  margin-left: 1em;
+}
+
+.sort-button:hover, .tag-button:hover {
+  color: var(--cream);
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+.sort-button.active {
+  color: var(--cream);
+  background-color: var(--green);
+  border-color: var(--green);
+}
 .frames {
   box-sizing: border-box;
   display: grid;

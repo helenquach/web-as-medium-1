@@ -47,6 +47,14 @@ body {
   background-color: var(--green);
 }
 
+.background-light-green {
+  background-color: var(--light-green);
+}
+
+.background-olive {
+  background-color: var(--olive);
+}
+
 .background-dark-blue {
   background-color: var(--dark-blue);
 }
@@ -189,6 +197,7 @@ h1, h2 {
   align-items: center;
   transform: translate(-1em, 0);
   margin-bottom: 2em;
+  width: fit-content;
 }
 
 .back-button:hover {
@@ -198,6 +207,7 @@ h1, h2 {
 .description {
   margin-top: 6em;
   margin-bottom: 6em;
+  line-height: 1.5;
 }
 
 .info {
@@ -227,6 +237,7 @@ h1, h2 {
 }
 
 .current-image {
+  position: relative;
   width: 40vw;
   max-height: 90vh;
   margin-bottom: 2em;
@@ -288,4 +299,63 @@ h1, h2 {
 
 .tag:hover {
   text-decoration: underline;
+}
+
+.toggle-button {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 2em;
+  right: 2em;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  border: 1.5px solid;
+  background-color: rgba(0,0,0,0.8);
+  color: var(--cream);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.current-image:hover > .toggle-button {
+  opacity: 1;
+}
+
+.current-image:has(.full-image) .show-icon {
+  display: block;
+}
+
+.current-image:has(.full-image) .hide-icon {
+  display: none;
+}
+
+.current-image:has(.frame-image) .show-icon {
+  display: none;
+
+}
+.current-image:has(.frame-image) .hide-icon {
+  display: block;
+}
+
+.toggle-button:hover {
+  background-color: var(--cream);
+  color: rgba(0,0,0,1);
+}
+
+.hidden {
+  display: none;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 0.25em 0;
+  width: 6.5em;
+  transform: translate(-5.5em, 0);
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--cream);
+  background-color: rgba(0,0,0,0.8);
 }

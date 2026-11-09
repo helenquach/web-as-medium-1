@@ -5,9 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const frameTemplate = document.querySelector('.template');
 
   let initCursor = false;
-  let columns = 4;
   let sortBy = 'featured';
-  let filterTag = 'none';
 
   /* Create frames */
 
@@ -15,7 +13,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* End create frames */
 
-  for (let i = columns-1; i < frames.length; i += columns) {
+  const gridComputedStyle = window.getComputedStyle(framesGrid);
+  const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+  for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
     frames[i].classList.add('right');
   }
 
@@ -62,27 +62,24 @@ document.addEventListener("DOMContentLoaded", () => {
     frames.forEach((frame) => {
       frame.classList.remove('right');
     });
-    for (let i = columns-1; i < frames.length; i += columns) {
+    const gridComputedStyle = window.getComputedStyle(framesGrid);
+    const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+    for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
       frames[i].classList.add('right');
     }
   });
 
-  // frames.forEach((frame) => {
-  //   frame.addEventListener('mouseover', () => {
-  //     const preview = frame.querySelector('.preview');
-  //     frame.addEventListener('mousemove', e => {
-  //       preview.style.setProperty('--mouse-x', `${e.clientX}px`);
-  //       preview.style.setProperty('--mouse-y', `${e.clientY}px`);
-  //     });
-  //   });
-  // })  
-
-  document.querySelectorAll('.sort-button').forEach((sortButton) => {
+  const sortButtons = document.querySelectorAll('.sort-button');
+  sortButtons.forEach((sortButton) => {
       sortButton.addEventListener('click', () => {
+        sortButtons.forEach((s) => s.classList.remove('active'));
+        sortButton.classList.add('active');
         sortBy = sortButton.dataset.sort;
         framesGrid.innerHTML = '';
         const frames = getCatFrames(sortCats(cats, sortBy), framesGrid, frameTemplate);
-        for (let i = columns-1; i < frames.length; i += columns) {
+        const gridComputedStyle = window.getComputedStyle(framesGrid);
+        const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+        for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
           frames[i].classList.add('right');
         }
         if (sortBy === 'featured') {
