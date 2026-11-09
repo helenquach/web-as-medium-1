@@ -43,8 +43,6 @@ h1 {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-bottom: 2em;
-  align-self: start;
 }
 
 .cursor {
@@ -458,7 +456,6 @@ a:hover ~ .preview {
   background-color: var(--blue);
 }
 
-
 .background-teal {
   background-color: var(--teal);
 }
@@ -538,7 +535,33 @@ a:hover ~ .preview {
   display: none;
 }
 
+.title-and-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.see-all-link {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-family: "Federo", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1em;
+}
+
+.see-all-link:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 600px) {
+  body {
+    padding: 0 2em;
+  }
   .frames {
     box-sizing: border-box;
     display: grid;
@@ -549,6 +572,15 @@ a:hover ~ .preview {
     align-items: center;
     margin-bottom: 4em;
     justify-items: center;
+  }
+  .title-and-link {
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    margin-bottom: 4em;
+  }
+  h1 {
+    font-size: 1.5em;
   }
 }
 
@@ -564,6 +596,12 @@ a:hover ~ .preview {
     margin-bottom: 4em;
     justify-items: center;
   }
+  .title-and-link {
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    margin-bottom: 4em;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -578,6 +616,12 @@ a:hover ~ .preview {
     margin-bottom: 4em;
     justify-items: center;
   }
+  .title-and-link {
+    flex-direction: column;
+    align-items: start;
+    gap: 1em;
+    margin-bottom: 4em;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -591,5 +635,13 @@ a:hover ~ .preview {
     align-items: center;
     margin-bottom: 4em;
     justify-items: center;
+  }
+  .title-and-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 2em;
   }
 }

@@ -297,6 +297,10 @@ h1, h2 {
   display: none;
 }
 
+.tags .value {
+  line-height: 1.5em;
+}
+
 .tag:hover {
   text-decoration: underline;
 }
@@ -361,6 +365,9 @@ h1, h2 {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    padding: 0 2em;
+  }
   .content {
     flex-direction: column-reverse;
     gap: 2em;

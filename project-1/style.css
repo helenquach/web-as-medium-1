@@ -152,7 +152,7 @@ nav a:hover {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   row-gap: 1em;
-  column-gap: 1em;
+  column-gap: 2em;
   width: 100%;
   align-items: center;
   margin-bottom: 4em;
@@ -364,14 +364,48 @@ a:hover ~ .preview {
   color: var(--dark-red);
 }
 
+#military-cat {
+  width: 80%;
+}
+
+#nurse-cat {
+  width: 70%;
+}
+
+#cat-dog {
+  width: 80%;
+}
+
+#edith-cats {
+  width: 70%;
+}
+
+#brunnhilde {
+  width: 90%;
+}
+
+#alley-cat {
+  width: 90%;
+}
+
+#fluffy-cat {
+  width: 80%;
+}
+
+#window-cat {
+  width: 70%;
+}
 
 @media screen and (max-width: 600px) {
+  body {
+    padding: 0 2em;
+  }
   .frames {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     row-gap: 1em;
-    column-gap: 1em;
+    column-gap: 2em;
     width: 100%;
     align-items: center;
     margin-bottom: 4em;
@@ -385,7 +419,7 @@ a:hover ~ .preview {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1em;
-    column-gap: 1em;
+    column-gap: 2em;
     width: 100%;
     align-items: center;
     margin-bottom: 4em;
@@ -399,7 +433,7 @@ a:hover ~ .preview {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     row-gap: 1em;
-    column-gap: 1em;
+    column-gap: 2em;
     width: 100%;
     align-items: center;
     margin-bottom: 4em;
@@ -413,19 +447,11 @@ a:hover ~ .preview {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 1em;
-    column-gap: 1em;
+    column-gap: 2em;
     width: 100%;
     align-items: center;
     margin-bottom: 4em;
     justify-items: center;
-  }
-
-  #herman-and-vermin {
-    width: 100%;
-  }
-
-  #dunce {
-    width: 100%;
   }
 
   #dunce.featured a {
@@ -433,24 +459,12 @@ a:hover ~ .preview {
     transform: translate(5%, 20%);
   }
 
-  #military-cat {
-    width: 80%;
-  }
-
   #military-cat.featured a {
     transform: translate(0%, 0%);
   }
 
-  #cat-dog-2 {
-    width: 100%;
-  }
-
   #cat-dog-2.featured a {
     transform: translate(0px, 30%);
-  }
-
-  #cat-dog {
-    width: 80%;
   }
 
   #cat-dog.featured a {
@@ -460,25 +474,12 @@ a:hover ~ .preview {
   #christmas-cat.featured a {
     transform: translate(20%, 0%);
   }
-
-  #nurse-cat {
-    width: 70%;
-  }
-
   #nurse-cat.featured a {
     transform: translate(20%, -40%);
   }
 
-  #brunnhilde {
-    width: 90%;
-  }
-
   #brunnhilde.featured a {
     transform: translate(0%, -10%);
-  }
-
-  #first-cat {
-    width: 100%;
   }
 
   #first-cat.featured a {
@@ -493,16 +494,8 @@ a:hover ~ .preview {
     transform: translate(15%, -20%);
   }
 
-  #edith-cats {
-    width: 70%;
-  }
-
   #edith-cats.featured a {
     transform: translate(20%, -80%);
-  }
-
-  #cat-doll {
-    width: 100%;
   }
 
   #cat-doll.featured a {
@@ -517,10 +510,6 @@ a:hover ~ .preview {
 
   #cat-basket-2.featured a {
     transform: translate(0, 0%);
-  }
-
-  #alley-cat {
-    width: 90%;
   }
 
   #alley-cat.featured a {
@@ -539,10 +528,6 @@ a:hover ~ .preview {
     transform: translate(35%, -45%);
   }
 
-  #fluffy-cat {
-    width: 80%;
-  }
-
   #fluffy-cat.featured {
     justify-self: end;
   }
@@ -551,32 +536,20 @@ a:hover ~ .preview {
     transform: translate(0, 35%);
   }
 
-  #hep {
-    width: 100%;
-  }
-
   #hep.featured a {
     transform: translate(0, -25%);
-  }
-
-  #window-cat {
-    width: 70%;
   }
 
   #window-cat.featured a {
     transform: translate(-15%, -40%);
   }
 
-  #bobbie {
+  #bobbie.featured {
     width: 120%;
   }
 
   #bobbie.featured a {
     transform: translate(-10%, -40%);
-  }
-
-  #peta-cat {
-    width: 100%;
   }
 
   #peta-cat.featured {

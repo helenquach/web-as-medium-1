@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const tagsValue = document.querySelector('.tags .value');
   if (tags.length > 0) {
     const tagTemplate = document.querySelector('.tag.template');
-    tags.forEach((tag) => {
+    tags.forEach((tag, index) => {
       const tagSlug = tagMap.get(tag);
       const tagElement = tagTemplate.cloneNode(true);
       const tagLink = tagElement.querySelector('a');
@@ -60,8 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const currentImage = document.querySelector(".current-image img");
   const toggleButton = document.querySelector(".toggle-button");
-  const showIcon = toggleButton.querySelector(".show-icon");
-  const hideIcon = toggleButton.querySelector(".hide-icon");
   toggleButton.addEventListener("mouseover", () => {
     tooltip.classList.remove("hidden");
   });
@@ -96,6 +94,9 @@ function getCatData(slug) {
 const tagMap = new Map([
   ["two peas in a pod", "two-peas-in-a-pod"],
   ["best friends or sworn enemies?", "best-friends-or-sworn-enemies"],
+  ["cats in hats", "cats-in-hats"],
+  ["famous felines", "famous-felines"],
+  ["on the prowl", "on-the-prowl"],
 ]);
 
 const cats = [
@@ -106,6 +107,7 @@ const cats = [
     date: "1945-1950",
     catName: "Herman and Vermin",
     sortByDate: "1945",
+    sortByFluffiness: 19,
     author: "Frances Benjamin Johnston",
     source: "Library of Congress",
     tags: ["two peas in a pod"],
@@ -122,9 +124,10 @@ const cats = [
     date: "1911",
     catName: "Unknown",
     sortByDate: "1911",
+    sortByFluffiness: 15,
     author: "Eulalie Osgood Grover",
     source: "N/A",
-    tags: [],
+    tags: ["cats in hats"],
     fullImageSrc: "../images/dunce-full.jpg",
     frameImageSrc: "../images/dunce.png",
     backgroundColorClass: "background-orange",
@@ -138,6 +141,7 @@ const cats = [
     date: "1920s",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 14,
     author: "Unknown",
     source: "Navy Medicine",
     tags: [],
@@ -154,6 +158,7 @@ const cats = [
     date: "c. 1920",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 17,
     author: "Winifred Bridge",
     source: "State Library and Archives of Florida",
     tags: ["best friends or sworn enemies?"],
@@ -170,9 +175,10 @@ const cats = [
     date: "c. 1920",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 16,
     author: "Unknown",
     source: "George Eastman Museum",
-    tags: ["best friends or sworn enemies?"],
+    tags: ["best friends or sworn enemies?", "on the prowl"],
     fullImageSrc: "../images/cat-dog-full.jpg",
     frameImageSrc: "../images/cat-dog.png",
     backgroundColorClass: "background-teal",
@@ -186,6 +192,7 @@ const cats = [
     date: "c. 1907",
     catName: "Unknown",
     sortByDate: "1907",
+    sortByFluffiness: 2,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
@@ -202,9 +209,10 @@ const cats = [
     date: "1910-1924",
     catName: "Unknown",
     sortByDate: "1910",
+    sortByFluffiness: 4,
     author: "Michael Zwerdling",
     source: "<i>Pictures of Nursing: The Zwerdling Postcard Collection</i>,<br/>The National Library of Medicine",
-    tags: [],
+    tags: ["cats in hats"],
     fullImageSrc: "../images/nurse-cat-full.jpg",
     frameImageSrc: "../images/nurse-cat.png",
     backgroundColorClass: "background-pink",
@@ -218,9 +226,10 @@ const cats = [
     date: "1936",
     catName: "Unknown",
     sortByDate: "1936",
+    sortByFluffiness: 10,
     author: "Adolph Edward Weidhaas",
     source: "Library of Congress",
-    tags: [],
+    tags: ["cats in hats"],
     fullImageSrc: "../images/brunnhilde-full.jpg",
     frameImageSrc: "../images/brunnhilde.png",
     backgroundColorClass: "background-gold",
@@ -234,6 +243,7 @@ const cats = [
     date: "1840-1860",
     catName: "Unknown",
     sortByDate: "1840",
+    sortByFluffiness: 9,
     author: "Unknown",
     source: "Harvard University, Houghton Library",
     tags: [],
@@ -250,6 +260,7 @@ const cats = [
     date: "1951",
     catName: "Unknown",
     sortByDate: "1951",
+    sortByFluffiness: 8,
     author: "Ivan Ives",
     source: "State Library of New South Wales",
     tags: ["two peas in a pod"],
@@ -266,6 +277,7 @@ const cats = [
     date: "1920",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 12,
     author: "Edith Södergran",
     source: "The Society of Swedish Literature in Finland",
     tags: ["two peas in a pod"],
@@ -282,9 +294,10 @@ const cats = [
     date: "1911-1919",
     catName: "Buzzer",
     sortByDate: "1911",
+    sortByFluffiness: 6,
     author: "Arnold Genthe",
     source: "Library of Congress",
-    tags: [],
+    tags: ["famous felines"],
     fullImageSrc: "../images/cat-doll-full.jpg",
     frameImageSrc: "../images/cat-doll.png",
     backgroundColorClass: "background-green",
@@ -298,6 +311,7 @@ const cats = [
     date: "c. 1903-1928",
     catName: "Unknown, Boy Blue",
     sortByDate: "1903",
+    sortByFluffiness: 3,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: ["two peas in a pod"],
@@ -314,9 +328,10 @@ const cats = [
     date: "1948",
     catName: "Unknown",
     sortByDate: "1948",
+    sortByFluffiness: 18,
     author: "Unknown",
     source: "Mitchell Library, State Library of New South Wales and Courtesy ACP Magazine Ltd.",
-    tags: [],
+    tags: ["on the prowl"],
     fullImageSrc: "../images/alley-cat-full.jpg",
     frameImageSrc: "../images/alley-cat.png",
     backgroundColorClass: "background-brown-alt",
@@ -330,6 +345,7 @@ const cats = [
     date: "1954",
     catName: "Unknown",
     sortByDate: "1954",
+    sortByFluffiness: 5,
     author: "Unknown",
     source: "The National Archives of Norway",
     tags: ["two peas in a pod"],
@@ -346,6 +362,7 @@ const cats = [
     date: "1916",
     catName: "Unknown",
     sortByDate: "1916",
+    sortByFluffiness: 1,
     author: "Frank Eugune",
     source: "Library of Congress",
     tags: [],
@@ -362,6 +379,7 @@ const cats = [
     date: "1946",
     catName: "Hep",
     sortByDate: "1946",
+    sortByFluffiness: 11,
     author: "Unknown",
     source: "Library of Congress",
     tags: [],
@@ -378,6 +396,7 @@ const cats = [
     date: "c. 1904-1905",
     catName: "Unknown",
     sortByDate: "1904",
+    sortByFluffiness: 20,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
@@ -394,6 +413,7 @@ const cats = [
     date: "c. 1939-1945",
     catName: "Bobbie",
     sortByDate: "1939",
+    sortByFluffiness: 13,
     author: "Sam Hood",
     source: "State Library of New South Wales",
     tags: [],
@@ -410,9 +430,10 @@ const cats = [
     date: "1964-1980",
     catName: "Peta",
     sortByDate: "1964",
+    sortByFluffiness: 7,
     author: "Unknown",
     source: "The National Archives UK",
-    tags: [],
+    tags: ["famous felines", "on the prowl"],
     fullImageSrc: "../images/peta-cat-full.jpg",
     frameImageSrc: "../images/peta-cat.png",
     backgroundColorClass: "background-orange",

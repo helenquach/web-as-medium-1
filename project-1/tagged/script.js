@@ -86,17 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
           frames[i].classList.add('right');
         }
-        if (sortBy === 'featured') {
-          framesGrid.classList.add('featured');
-          frames.forEach((frame) => {
-            frame.classList.add('featured');
-          });
-        } else {
-          framesGrid.classList.remove('featured');
-          frames.forEach((frame) => {
-            frame.classList.remove('featured');
-          });
-        }
       });
     });
 });
@@ -122,6 +111,10 @@ function sortCats(cats, sortBy) {
       return cats.toSorted((cat1, cat2) => parseInt(cat1.sortByDate) - parseInt(cat2.sortByDate));
     case 'dateDescending':
       return cats.toSorted((cat1, cat2) => parseInt(cat2.sortByDate) - parseInt(cat1.sortByDate));
+    case 'fluffinessAscending':
+      return cats.toSorted((cat1, cat2) => cat2.sortByFluffiness - cat1.sortByFluffiness); 
+      case 'fluffinessDescending':
+      return cats.toSorted((cat1, cat2) => cat1.sortByFluffiness - cat2.sortByFluffiness); 
   }
 }
 
@@ -142,7 +135,7 @@ function getCatFrames(cats, framesGrid, template) {
     });
 
     const catFrameLink = catFrame.querySelector('a');
-    catFrameLink.href = `./cats/${cat.slug}.html`;
+    catFrameLink.href = `../cats/${cat.slug}.html`;
 
     const cursorColorClass = `color${cat.backgroundColorClass.substring(10)}`;
 
@@ -178,6 +171,7 @@ const cats = [
     date: "1945-1950",
     catName: "Herman and Vermin",
     sortByDate: "1945",
+    sortByFluffiness: 19,
     author: "Frances Benjamin Johnston",
     source: "Library of Congress",
     tags: ["two peas in a pod"],
@@ -185,7 +179,7 @@ const cats = [
     frameImageSrc: "../images/herman-and-vermin.png",
     backgroundColorClass: "background-pink",
     foregroundColorClass: "color-dark-blue",
-    description: "Lorem ipsum",
+    description: "This photograph shows two cats, Herman and Vermin, seated on the brick railing of a house in New Orleans, Louisiana. The cats belonged to Frances Benjamin Johnston, an American photographer and photojournalist known for her portraits and images of southern architecture. Johnston retired in a house in the French Quarter of New Orleans in 1945 and later died in New Orleans in 1952 at the age of eighty-eight.",
   },
   {
     id: "dunce",
@@ -194,14 +188,15 @@ const cats = [
     date: "1911",
     catName: "Unknown",
     sortByDate: "1911",
+    sortByFluffiness: 15,
     author: "Eulalie Osgood Grover",
     source: "N/A",
-    tags: [],
+    tags: ["cats in hats"],
     fullImageSrc: "../images/dunce-full.jpg",
     frameImageSrc: "../images/dunce.png",
     backgroundColorClass: "background-orange",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows a cat wearing a dunce cap with the caption, \“Yes, I am a dunce.\” Dunce caps were worn as a punishment in schools in Europe and the United States in the 19th and early 20th centuries by children who were considered disruptive. This image was selected from a book titled <i>Kittens and Cats</i> by Eulalie Osgood Grover. The full book includes dozens of cats photographed in various costumes, with an assortment of personalities.",
   },
   {
     id: "military-cat",
@@ -210,14 +205,15 @@ const cats = [
     date: "1920s",
     catName: "Unknown",
     sortByDate: "1920",
-    author: "U.S.S. Relief",
+    sortByFluffiness: 14,
+    author: "Unknown",
     source: "Navy Medicine",
     tags: [],
     fullImageSrc: "../images/military-cat-full.jpg",
     frameImageSrc: "../images/military-cat.png",
     backgroundColorClass: "background-green",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows a cat sitting in a chair on the deck of the USS <i>Relief</i>. The sixth USS <i>Relief</i> operated from 1920 to 1946 and was the first ship of the United States Navy designed and built as a hospital ship. During its time of service, the <i>Relief</i> was one of the world’s most modern and best equipped hospital ships, able to accommodate up to 500 patients.",
   },
   {
     id: "cat-dog-2",
@@ -226,14 +222,15 @@ const cats = [
     date: "c. 1920",
     catName: "Unknown",
     sortByDate: "1920",
-    author: "Unknown",
+    sortByFluffiness: 17,
+    author: "Winifred Bridge",
     source: "State Library and Archives of Florida",
     tags: ["best friends or sworn enemies?"],
     fullImageSrc: "../images/cat-dog-2-full.jpg",
     frameImageSrc: "../images/cat-dog-2.png",
     backgroundColorClass: "background-red",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This cyanotype shows a dog and cat belonging to the Bridge family in Dade City, Florida. Winifred Bridge was a respected teacher and hobbyist photographer who loved to photograph her family, self-portraits, and animals. Her love for animals is reflected in her photographs. In some of her pictures with animals, Bridge would write the names of the pets pictured, but neglect to name the people in the photos. This particular duo would appear several more times in other pictures in Bridge\’s personal collection.",
   },
   {
     id: "cat-dog",
@@ -242,14 +239,15 @@ const cats = [
     date: "c. 1920",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 16,
     author: "Unknown",
     source: "George Eastman Museum",
-    tags: ["best friends or sworn enemies?"],
+    tags: ["best friends or sworn enemies?", "on the prowl"],
     fullImageSrc: "../images/cat-dog-full.jpg",
     frameImageSrc: "../images/cat-dog.png",
     backgroundColorClass: "background-teal",
     foregroundColorClass: "color-dark-blue",
-    description: "Lorem ipsum",
+    description: "This photograph of a cat chasing a dog belongs to the George Eastman House Collection. The photo is a gelatin silver print mounted on a celluloid button with a pin back. Although cats and dogs may have relationships based on fear and aggression, cats and dogs raised in the same household may have positive, playful interactions. It is unclear which of the two relationship dynamics is shown in the photo.",
   },
   {
     id: "christmas-cat",
@@ -258,6 +256,7 @@ const cats = [
     date: "c. 1907",
     catName: "Unknown",
     sortByDate: "1907",
+    sortByFluffiness: 2,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
@@ -265,7 +264,7 @@ const cats = [
     frameImageSrc: "../images/christmas-cat.png",
     backgroundColorClass: "background-brown",
     foregroundColorClass: "color-pink",
-    description: "Lorem ipsum",
+    description: "This photograph shows a white cat laying beneath a Christmas tree. Jessie Tarbox Beals, the author of the photo, was an American photographer and the first published female photojournalist in the United States. She was known especially for her carefully staged photographs of cats lounging in shop windows, doorways and domestic interiors. Beals sold cat photographs as postcards and prints, using them as a source of income and a way to reach a broader audience.",
   },
   {
     id: "nurse-cat",
@@ -274,14 +273,15 @@ const cats = [
     date: "1910-1924",
     catName: "Unknown",
     sortByDate: "1910",
+    sortByFluffiness: 4,
     author: "Michael Zwerdling",
-    source: "The National Library of Medicine",
-    tags: [],
+    source: "<i>Pictures of Nursing: The Zwerdling Postcard Collection</i>,<br/>The National Library of Medicine",
+    tags: ["cats in hats"],
     fullImageSrc: "../images/nurse-cat-full.jpg",
     frameImageSrc: "../images/nurse-cat.png",
     backgroundColorClass: "background-pink",
     foregroundColorClass: "color-dark-red",
-    description: "Lorem ipsum",
+    description: "This photograph shows a cat dressed as a nurse in a large bow and a hat. The owner of the photo, Michael Zwerdling, was an American nurse in possession of over 2,000 postcards with images of nurses and the nursing profession from around the world, spanning over 100 years. The complete collection reveals how nursing was viewed in the public eye throughout the 20th century.",
   },
   {
     id: "brunnhilde",
@@ -290,14 +290,15 @@ const cats = [
     date: "1936",
     catName: "Unknown",
     sortByDate: "1936",
+    sortByFluffiness: 10,
     author: "Adolph Edward Weidhaas",
     source: "Library of Congress",
-    tags: [],
+    tags: ["cats in hats"],
     fullImageSrc: "../images/brunnhilde-full.jpg",
     frameImageSrc: "../images/brunnhilde.png",
     backgroundColorClass: "background-gold",
     foregroundColorClass: "color-brown",
-    description: "Lorem ipsum",
+    description: "This photograph shows a cat wearing a winged helmet and breastplate armor in the role of the Valkyrie Brünnhilde from Richard Wagner’s opera <i>Der Ring des Niebelungen</i> (<i>The Ring of the Nibelung</i>, or <i>The Ring</i> for short). <i>The Ring</i> is a connected set of four operas inspired by Wagner’s knowledge of Norse and Pagan legends. Brünnhilde is the Valkyrie daughter of Wotan, one of the central characters, who later redeems the world.",
   },
   {
     id: "first-cat",
@@ -306,14 +307,15 @@ const cats = [
     date: "1840-1860",
     catName: "Unknown",
     sortByDate: "1840",
+    sortByFluffiness: 9,
     author: "Unknown",
-    source: "Houghton Library",
+    source: "Harvard University, Houghton Library",
     tags: [],
     fullImageSrc: "../images/first-cat-full.jpg",
     frameImageSrc: "../images/first-cat.png",
     backgroundColorClass: "background-dark-red",
     foregroundColorClass: "color-gold",
-    description: "Lorem ipsum",
+    description: "This photograph is the earliest known photograph of a domestic cat, taken sometime between 1840 and 1860 by an unknown photographer. The photo is a daguerreotype of a tabby with white feet drinking water from a white bowl. Daguerreotype was the first publicly available photographic process, invented by Louis Daguerre and introduced to the public in 1839. The process involves treating a sheet of silver-plated copper with chemicals and exposing it in a camera.",
   },
   {
     id: "cat-pair",
@@ -322,6 +324,7 @@ const cats = [
     date: "1951",
     catName: "Unknown",
     sortByDate: "1951",
+    sortByFluffiness: 8,
     author: "Ivan Ives",
     source: "State Library of New South Wales",
     tags: ["two peas in a pod"],
@@ -329,7 +332,7 @@ const cats = [
     frameImageSrc: "../images/cat-pair.png",
     backgroundColorClass: "background-blue",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows a pair of cats perched on what appears to be a bag of onions. Perhaps the pair are a mother and her young kitten.",
   },
   {
     id: "edith-cats",
@@ -338,6 +341,7 @@ const cats = [
     date: "1920",
     catName: "Unknown",
     sortByDate: "1920",
+    sortByFluffiness: 12,
     author: "Edith Södergran",
     source: "The Society of Swedish Literature in Finland",
     tags: ["two peas in a pod"],
@@ -345,7 +349,7 @@ const cats = [
     frameImageSrc: "../images/edith-cats.png",
     backgroundColorClass: "background-orange",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows two cats outside the home of Swedish-speaking Finnish poet Edith Södergran. Södergran is considered to have been one of the greatest modern Swedish-language poets. Södergran was also an amateur photographer and took many photos of her cats. Cats were tropes for primal instincts and sensuality in many of her poems.",
   },
   {
     id: "cat-doll",
@@ -354,14 +358,15 @@ const cats = [
     date: "1911-1919",
     catName: "Buzzer",
     sortByDate: "1911",
+    sortByFluffiness: 6,
     author: "Arnold Genthe",
     source: "Library of Congress",
-    tags: [],
+    tags: ["famous felines"],
     fullImageSrc: "../images/cat-doll-full.jpg",
     frameImageSrc: "../images/cat-doll.png",
     backgroundColorClass: "background-green",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "In this photograph, Buzzer the striped cat lies on a chair next to a doll. Buzzer was a favorite subject of photographer Arnold Genthe, who established himself as a portrait photographer in the early twentieth century. Genthe took several photographs of Buzzer next to female celebrities, including silent film actress Ann Murdock and Broadway star Blanche Gervais. Buzzer eventually gained notoriety as his photos were printed in newspapers. \“Once,\” Genthe wrote, \“a whole page (of the Boston Herald) was devoted to \‘Buzzer, The Most Photographed Cat in America.\’\”",
   },
   {
     id: "cat-basket-2",
@@ -370,6 +375,7 @@ const cats = [
     date: "c. 1903-1928",
     catName: "Unknown, Boy Blue",
     sortByDate: "1903",
+    sortByFluffiness: 3,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: ["two peas in a pod"],
@@ -377,7 +383,7 @@ const cats = [
     frameImageSrc: "../images/cat-basket-2.png",
     backgroundColorClass: "background-dark-blue",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows a white cat sitting in a basket next to another cat of similar fluffiness. Jessie Tarbox Beals, the author of the photo, was an American photographer and the first published female photojournalist in the United States. She was known especially for her carefully staged photographs of cats lounging in shop windows, doorways and domestic interiors. Beals sold cat photographs as postcards and prints, using them as a source of income and a way to reach a broader audience.",
   },
   {
     id: "alley-cat",
@@ -386,14 +392,15 @@ const cats = [
     date: "1948",
     catName: "Unknown",
     sortByDate: "1948",
+    sortByFluffiness: 18,
     author: "Unknown",
     source: "Mitchell Library, State Library of New South Wales and Courtesy ACP Magazine Ltd.",
-    tags: [],
+    tags: ["on the prowl"],
     fullImageSrc: "../images/alley-cat-full.jpg",
     frameImageSrc: "../images/alley-cat.png",
     backgroundColorClass: "background-brown-alt",
     foregroundColorClass: "color-olive",
-    description: "Lorem ipsum",
+    description: "This photograph depicts a cat jumping from a trash can into a pile of newspapers in an alley. The photo is part of a series of photographs of street cats.",
   },
   {
     id: "cat-pair-2",
@@ -402,6 +409,7 @@ const cats = [
     date: "1954",
     catName: "Unknown",
     sortByDate: "1954",
+    sortByFluffiness: 5,
     author: "Unknown",
     source: "The National Archives of Norway",
     tags: ["two peas in a pod"],
@@ -409,7 +417,7 @@ const cats = [
     frameImageSrc: "../images/cat-pair-2.png",
     backgroundColorClass: "background-dark-blue",
     foregroundColorClass: "color-pink",
-    description: "Lorem ipsum",
+    description: "This photograph shows a pair of cats sitting together inside a box. These two cats possibly belonged to Swedish actress Eva Henning. One might consider them close friends.",
   },
   {
     id: "fluffy-cat",
@@ -418,6 +426,7 @@ const cats = [
     date: "1916",
     catName: "Unknown",
     sortByDate: "1916",
+    sortByFluffiness: 1,
     author: "Frank Eugune",
     source: "Library of Congress",
     tags: [],
@@ -425,7 +434,7 @@ const cats = [
     frameImageSrc: "../images/fluffy-cat.png",
     backgroundColorClass: "background-teal",
     foregroundColorClass: "color-brown-alt",
-    description: "Lorem ipsum",
+    description: "This photograph of a particularly fluffy cat was published in <i>Camera Work</i>, a photography journal affiliated with the Photo-Secession, in 1916. The Photo-Secession was an early 20th-century movement that promoted photography as a fine art. Leaders of the Photo-Secession believed that the significance of a photograph remained not what was in front of the camera but in the manipulation of the image by the artist to achieve their subjective vision. The author of this photo, Frank Eugene, was a founding member of the New York Photo-Secession.",
   },
   {
     id: "hep",
@@ -434,6 +443,7 @@ const cats = [
     date: "1946",
     catName: "Hep",
     sortByDate: "1946",
+    sortByFluffiness: 11,
     author: "Unknown",
     source: "Library of Congress",
     tags: [],
@@ -441,7 +451,7 @@ const cats = [
     frameImageSrc: "../images/hep.png",
     backgroundColorClass: "background-blue",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows Hep, the cat, listening to Sam Donahue and his band play at the Aquarium in New York City. Sam Donahue was an American jazz saxophonist and trumpeter who performed with artists Gene Krupa, Billy May, and Benny Goodman. Blues and jazz musicians in the 1930s and 1940s often used the term “cat” to refer to other respected musicians. A “hepcat” was someone who adopted the lifestyle of jazz subculture, from its fashion to recreational activities.",
   },
   {
     id: "window-cat",
@@ -450,6 +460,7 @@ const cats = [
     date: "c. 1904-1905",
     catName: "Unknown",
     sortByDate: "1904",
+    sortByFluffiness: 20,
     author: "Jessie Tarbox Beals",
     source: "Schlesinger Library on the History of Women in America",
     tags: [],
@@ -457,7 +468,7 @@ const cats = [
     frameImageSrc: "../images/window-cat.png",
     backgroundColorClass: "background-dark-red",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "This photograph shows a cat sitting indoors on a window ledge next to a vase of ivy. Jessie Tarbox Beals, the author of the photo, was an American photographer and the first published female photojournalist in the United States. She was known especially for her carefully staged photographs of cats lounging in shop windows, doorways and domestic interiors. Beals sold cat photographs as postcards and prints, using them as a source of income and a way to reach a broader audience.",
   },
   {
     id: "bobbie",
@@ -466,6 +477,7 @@ const cats = [
     date: "c. 1939-1945",
     catName: "Bobbie",
     sortByDate: "1939",
+    sortByFluffiness: 13,
     author: "Sam Hood",
     source: "State Library of New South Wales",
     tags: [],
@@ -473,7 +485,7 @@ const cats = [
     frameImageSrc: "../images/bobbie.png",
     backgroundColorClass: "background-dark-blue",
     foregroundColorClass: "color-pink",
-    description: "Lorem ipsum",
+    description: "This photograph shows Bobbie the cat looking up at an embracing couple during World War II. Photographer Sam Hood captured this endearing moment in which an Australian soldier said goodbye to his wife before leaving. It is unclear whether the soldier also said goodbye to Bobbie.",
   },
   {
     id: "peta-cat",
@@ -482,13 +494,14 @@ const cats = [
     date: "1964-1980",
     catName: "Peta",
     sortByDate: "1964",
+    sortByFluffiness: 7,
     author: "Unknown",
     source: "The National Archives UK",
-    tags: [],
+    tags: ["famous felines", "on the prowl"],
     fullImageSrc: "../images/peta-cat-full.jpg",
     frameImageSrc: "../images/peta-cat.png",
     backgroundColorClass: "background-orange",
     foregroundColorClass: "color-cream",
-    description: "Lorem ipsum",
+    description: "Photographed in this picture is Peta, former Chief Mouser to the Cabinet Office. Chief Mouser to the Cabinet Office is the title for the official resident cat at the residence and office of the prime minister of the United Kingdom in London. Peta became chief mouser in 1964 and served until around 1976. She was named Peta in honor of her predecessors: Peter, Peter II, and Peter III. Stories about Peta commonly appeared in the press. She is recorded to have caught \"several mice.\" In 1967, Peta was accused of fighting with former Prime Minister Harold Wilson’s Siamese cat, Nemo.",
   },
 ]
