@@ -112,7 +112,7 @@ nav a:hover {
 }
 
 .sort-buttons {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   justify-content: start;
   align-self: start;
 }
@@ -163,12 +163,6 @@ nav a:hover {
   align-items: center;
   margin-bottom: 4em;
   justify-items: center;
-}
-
-.frames.featured {
-  row-gap: 6em;
-  align-items: start;
-  justify-items: start;
 }
 
 .frame {
