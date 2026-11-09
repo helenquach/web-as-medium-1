@@ -136,6 +136,7 @@ nav a:hover {
   font-style: normal;
   font-size: 0.9em;
   padding: 0.25em 0.75em;
+  margin: 0.25em 0;
 }
 
 .sort-button:nth-child(1), .tag-button:nth-child(1) {
@@ -153,6 +154,7 @@ nav a:hover {
   background-color: var(--green);
   border-color: var(--green);
 }
+
 .frames {
   box-sizing: border-box;
   display: grid;
@@ -534,4 +536,60 @@ a:hover ~ .preview {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .frames {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 4em;
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .frames {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 4em;
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .frames {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 4em;
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .frames {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 1em;
+    column-gap: 1em;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 4em;
+    justify-items: center;
+  }
 }

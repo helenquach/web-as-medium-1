@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll('button').forEach((link) => {
+  document.querySelectorAll('.explore-link').forEach((link) => {
     link.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
       cursor.classList.add('difference');

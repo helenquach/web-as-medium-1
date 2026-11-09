@@ -11,13 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector('.title').textContent = `Cats with the tag \u{2018}${filterTag}\u{2019}`;
 
-  /* Create frames */
+   /* Create frames */
 
   const frames = getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
 
   /* End create frames */
 
-  for (let i = columns-1; i < frames.length; i += columns) {
+  const gridComputedStyle = window.getComputedStyle(framesGrid);
+  const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+  for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
     frames[i].classList.add('right');
   }
 
@@ -64,20 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     frames.forEach((frame) => {
       frame.classList.remove('right');
     });
-    for (let i = columns-1; i < frames.length; i += columns) {
+    const gridComputedStyle = window.getComputedStyle(framesGrid);
+    const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+    for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
       frames[i].classList.add('right');
     }
   });
-
-  // frames.forEach((frame) => {
-  //   frame.addEventListener('mouseover', () => {
-  //     const preview = frame.querySelector('.preview');
-  //     frame.addEventListener('mousemove', e => {
-  //       preview.style.setProperty('--mouse-x', `${e.clientX}px`);
-  //       preview.style.setProperty('--mouse-y', `${e.clientY}px`);
-  //     });
-  //   });
-  // })  
 
   const sortButtons = document.querySelectorAll('.sort-button');
   sortButtons.forEach((sortButton) => {
@@ -86,9 +80,22 @@ document.addEventListener("DOMContentLoaded", () => {
         sortButton.classList.add('active');
         sortBy = sortButton.dataset.sort;
         framesGrid.innerHTML = '';
-        const frames =  getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
-        for (let i = columns-1; i < frames.length; i += columns) {
+        const frames = getCatFrames(sortCats(filterCats(cats, filterTag), sortBy), framesGrid, frameTemplate);
+        const gridComputedStyle = window.getComputedStyle(framesGrid);
+        const gridCols = gridComputedStyle.getPropertyValue("grid-template-columns").split(" ").length;
+        for (let i = gridCols-1; i < frames.length && gridCols > 1; i += gridCols) {
           frames[i].classList.add('right');
+        }
+        if (sortBy === 'featured') {
+          framesGrid.classList.add('featured');
+          frames.forEach((frame) => {
+            frame.classList.add('featured');
+          });
+        } else {
+          framesGrid.classList.remove('featured');
+          frames.forEach((frame) => {
+            frame.classList.remove('featured');
+          });
         }
       });
     });
@@ -135,7 +142,7 @@ function getCatFrames(cats, framesGrid, template) {
     });
 
     const catFrameLink = catFrame.querySelector('a');
-    catFrameLink.href = `../cats/${cat.slug}.html`;
+    catFrameLink.href = `./cats/${cat.slug}.html`;
 
     const cursorColorClass = `color${cat.backgroundColorClass.substring(10)}`;
 
@@ -160,7 +167,6 @@ function getCatFrames(cats, framesGrid, template) {
   })
   return framesGrid.querySelectorAll('.frame');
 }
-
 
 /* DATA */
 
