@@ -105,7 +105,7 @@ nav a:hover {
   font-size: 1.5rem;
 }
 
-h1 {
+h1, h2 {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -119,6 +119,11 @@ img {
 .image {
   max-width: 480px;
   margin-bottom: 2em;
+}
+
+.window-cat-image {
+  margin-top: 6em;
+  max-width: 160px;
 }
 
 main {
@@ -157,6 +162,43 @@ p {
   transform: translate(8px, 0);
 }
 
+.credits {
+  margin-top: 2em;
+  width: 100%;
+  max-width: 600px;
+}
+
+h2 {
+  justify-self: center;
+  margin-bottom: 1em;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.info > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1.5px solid;
+  padding: 1.5em 0;
+}
+
+.info > div:nth-child(1) {
+  border-top: 1.5px solid;
+}
+
+.property {
+  font-weight: 600;
+}
+
+.value {
+  text-align: right;
+  padding-left: 4em;
+}
+
 @media screen and (max-width: 768px) {
   p {
     max-width: 100%;
@@ -166,4 +208,5 @@ p {
     width: 100%;
   }
 }
+
 
