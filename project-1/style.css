@@ -124,7 +124,23 @@ h1 {
   align-self: start;
 }
 
-.sort-button, .tag-button {
+.sort-button {
+  border-radius: 6em;
+  border: 1.5px solid;
+  color: var(--green);
+  background-color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9em;
+  padding: 0.25em 0.75em;
+  margin: 0.25em 0;
+}
+
+.tag-button {
+  display: inline-block;
+  width: fit-content;
   border-radius: 6em;
   border: 1.5px solid;
   color: var(--green);
