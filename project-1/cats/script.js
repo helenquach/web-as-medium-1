@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     tagsValue.textContent = "None";
   }
-  document.querySelector('.current-image img').src = cat.fullImageSrc;
+  document.querySelector('.current-image img').src = cat.frameImageSrc;
   document.body.classList.add(cat.backgroundColorClass);
   document.body.classList.add(cat.foregroundColorClass);
 
