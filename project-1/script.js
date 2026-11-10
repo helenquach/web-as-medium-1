@@ -28,18 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
   });
 
-  document.querySelectorAll('nav a').forEach((link) => {
-    link.addEventListener('mouseover', () => {
-      cursor.classList.add('hover');
-      cursor.classList.add('difference');
-    });
-    link.addEventListener('mouseout', () => {
-      cursor.classList.remove('hover');
-      cursor.classList.remove('difference');
-    });
-  });
-
-  document.querySelectorAll('button').forEach((link) => {
+  document.querySelectorAll('nav a, .sort-button, .tag-button').forEach((link) => {
     link.addEventListener('mouseover', () => {
       cursor.classList.add('hover');
       cursor.classList.add('difference');

@@ -45,6 +45,20 @@ h1 {
   font-style: normal;
 }
 
+.back-button {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  transform: translate(-1em, 0);
+  margin-bottom: 1em;
+  align-self: start;
+  width: fit-content;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
 .cursor {
   width: 1.5em;
   height: 1.5em;
@@ -91,7 +105,7 @@ nav {
   font-family: "Federo", sans-serif;
   font-weight: 400;
   font-style: normal;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 nav ul {
@@ -112,18 +126,12 @@ nav a:hover {
 }
 
 .sort-buttons {
-  margin-bottom: 1em;
-  justify-content: start;
-  align-self: start;
-}
-
-.tag-buttons {
   margin-bottom: 4em;
   justify-content: start;
   align-self: start;
 }
 
-.sort-button, .tag-button {
+.sort-button {
   border-radius: 6em;
   border: 1.5px solid;
   color: var(--green);
@@ -137,11 +145,11 @@ nav a:hover {
   margin: 0.25em 0;
 }
 
-.sort-button:nth-child(1), .tag-button:nth-child(1) {
+.sort-button:nth-child(1) {
   margin-left: 1em;
 }
 
-.sort-button:hover, .tag-button:hover {
+.sort-button:hover{
   color: var(--cream);
   background-color: var(--green);
   border-color: var(--green);
@@ -535,7 +543,7 @@ a:hover ~ .preview {
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .see-all-link {
@@ -570,8 +578,8 @@ a:hover ~ .preview {
   .title-and-link {
     flex-direction: column;
     align-items: start;
-    gap: 1em;
-    margin-bottom: 4em;
+    gap: 0.5em;
+    margin-bottom: 2em;
   }
   h1 {
     font-size: 1.5em;
@@ -593,8 +601,8 @@ a:hover ~ .preview {
   .title-and-link {
     flex-direction: column;
     align-items: start;
-    gap: 1em;
-    margin-bottom: 4em;
+    gap: 0.5em;
+    margin-bottom: 2em;
   }
 }
 
@@ -613,8 +621,8 @@ a:hover ~ .preview {
   .title-and-link {
     flex-direction: column;
     align-items: start;
-    gap: 1em;
-    margin-bottom: 4em;
+    gap: 0.5em;
+    margin-bottom: 2em;
   }
 }
 
@@ -636,6 +644,6 @@ a:hover ~ .preview {
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
 }

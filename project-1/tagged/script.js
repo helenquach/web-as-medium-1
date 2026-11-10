@@ -43,17 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  document.querySelectorAll('button').forEach((link) => {
-    link.addEventListener('mouseover', () => {
-      cursor.classList.add('hover');
-      cursor.classList.add('difference');
-    });
-    link.addEventListener('mouseout', () => {
-      cursor.classList.remove('hover');
-      cursor.classList.remove('difference');
-    });
-  });
-
   window.addEventListener('mouseout', (e) => {
     if(e.clientY <= 0 || e.clientX <= 0 || (e.clientX >= window.innerWidth || e.clientY >= window.innerHeight)) {
       cursor.style.opacity = '0';
@@ -75,6 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sortButtons = document.querySelectorAll('.sort-button');
   sortButtons.forEach((sortButton) => {
+      sortButton.addEventListener('mouseover', () => {
+        cursor.classList.add('hover');
+        cursor.classList.add('difference');
+      });
+      sortButton.addEventListener('mouseout', () => {
+        cursor.classList.remove('hover');
+        cursor.classList.remove('difference');
+      });
       sortButton.addEventListener('click', () => {
         sortButtons.forEach((s) => s.classList.remove('active'));
         sortButton.classList.add('active');
