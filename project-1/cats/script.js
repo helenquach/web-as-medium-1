@@ -116,7 +116,7 @@ const cats = [
     slug: "herman-and-vermin",
     title: "Herman and Vermin",
     date: "1945-1950",
-    catName: "Herman and Vermin",
+    catName: "Herman, Vermin",
     sortByDate: "1945",
     sortByFluffiness: 19,
     author: "Frances Benjamin Johnston",
